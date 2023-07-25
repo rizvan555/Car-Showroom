@@ -1,6 +1,8 @@
 import React from 'react';
-import Header from './Header';
 import audiBg from '../../resourse/images/audiBg.jpg';
+import Carousel from '../home/Carousel';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 function HomePage() {
   return (
@@ -11,7 +13,9 @@ function HomePage() {
         backgroundSize: 'cover',
       }}
     >
-      <Header />
+      <main>
+        <Carousel />
+      </main>
     </div>
   );
 }
