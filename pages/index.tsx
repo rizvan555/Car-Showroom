@@ -4,13 +4,15 @@ import About from './about';
 import Cars from './cars';
 import News from './news';
 import Contact from './contact';
+import { useState } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
+  const [light, setLight] = useState<boolean>(false);
   return (
     <div>
-      <HomePage />
+      <HomePage light={light} setLight={setLight} />
       <About />
       <Cars />
       <News />

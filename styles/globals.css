@@ -2,3 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.hr-line {
+  width: 70%;
+  height: 1px;
+  background-color: black;
+  margin: 16px 0;
+}
