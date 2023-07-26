@@ -4,7 +4,7 @@ import { BiSearch } from 'react-icons/bi';
 function SearchButton() {
   return (
     <div className=" text-white">
-      <BiSearch />
+      <BiSearch size={23} />
     </div>
   );
 }

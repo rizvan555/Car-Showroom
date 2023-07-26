@@ -1,5 +1,7 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
+
+
 
 function Navbar() {
   const [navbar, setNavbar] = useState([
