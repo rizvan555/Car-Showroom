@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import { Schema, model } from 'mongoose';
+import cors from 'cors';
 
 mongoose.connect('mongodb://localhost:27017/cars');
 
@@ -8,6 +9,7 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(express.json());
+app.use(cors());
 
 app.get('/cars', async (req, res) => {
   try {
