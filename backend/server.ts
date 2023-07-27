@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import { Cars } from './seed';
+import { Schema, model } from 'mongoose';
 
 mongoose.connect('mongodb://localhost:27017/cars');
 
@@ -30,3 +30,12 @@ app.post('/cars', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+const carsSchema = new Schema({
+  img: String,
+  name: String,
+  model: String,
+  price: Number,
+});
+
+export const Cars = model('Cars', carsSchema);
