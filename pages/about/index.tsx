@@ -25,7 +25,7 @@ function About() {
         </p>
       </div>
       <div>
-        <button className="border py-3 px-10 bg-white text-black ">
+        <button className="border py-3 px-10 bg-white text-black myButton">
           READ MORE
         </button>
       </div>
