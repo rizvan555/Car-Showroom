@@ -10,6 +10,7 @@ interface Cars {
 
 function Cars() {
   const [cars, setCars] = useState<Cars[]>([]);
+  const [visibility, setVisibility] = useState<number>(6);
   useEffect(() => {
     const getCars = async () => {
       try {
@@ -22,14 +23,19 @@ function Cars() {
     };
     getCars();
   }, []);
+
+  const handleMoreCars = () => {
+    setVisibility((prevVisibleCars) => prevVisibleCars + 6);
+  };
+
   return (
-    <div className="flex flex-col mx-auto px-2 pt-10">
+    <div className="flex flex-col mx-auto px-2 pt-10 py-8">
       <div className="flex items-center gap-8 mb-20">
         <h1 className="text-6xl font-bold">OUR CARS</h1>
         <hr className="hr-line" />
       </div>
       <div className="flex flex-wrap gap-10 justify-center mt-2 mb-6">
-        {cars.map((car, index) => {
+        {cars.slice(0, visibility).map((car, index) => {
           return (
             <div
               key={index}
@@ -50,6 +56,9 @@ function Cars() {
             </div>
           );
         })}
+        <button onClick={handleMoreCars} className="border px-6 py-2 bg-primary text-white myButton">
+          SEE MORE
+        </button>
       </div>
     </div>
   );
