@@ -8,3 +8,8 @@
   background-color: black;
   margin: 16px 0;
 }
+.myButton:hover {
+  background-color: white;
+  color: #00de1b;
+  border: 1px solid #00de1b;
+}
