@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction } from 'react';
 import audiBg from '../../resourse/images/audiBg.jpg';
 import audi1 from '../../resourse/images/audi1.jpeg';
-import audi2 from '../../resourse/images/audi2.webp';
+import audi2 from '../../resourse/images/audi2.png';
 import Carousel from '../home/Carousel';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';

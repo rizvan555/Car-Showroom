@@ -4,7 +4,7 @@ import Mercedes from '../../resourse/images/Mercedes.webp';
 function News() {
   return (
     <div
-      className="flex flex-col justify-center h-[100vh] mx-auto px-20 text-white"
+      className="flex flex-col justify-center  mx-auto px-20 py-32 text-white"
       style={{
         backgroundImage: `url(${Mercedes.src})`,
         backgroundSize: 'cover',
