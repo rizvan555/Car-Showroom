@@ -8,6 +8,12 @@
   background-color: black;
   margin: 16px 0;
 }
+.hr-line-contact {
+  width: 60%;
+  height: 1px;
+  background-color: black;
+  margin: 16px 0;
+}
 .myButton {
   background-color: #00de1b;
   color: white;

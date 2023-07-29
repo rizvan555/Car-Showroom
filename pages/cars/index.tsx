@@ -29,7 +29,7 @@ function Cars() {
   };
 
   return (
-    <div className="flex flex-col mx-auto px-2 pt-10 py-8">
+    <div className="flex flex-col mx-auto px-2 pt-10 py-8 bg-[#dadada]">
       <div className="flex items-center gap-8 mb-20">
         <h1 className="text-6xl font-bold">OUR CARS</h1>
         <hr className="hr-line" />
@@ -39,24 +39,29 @@ function Cars() {
           return (
             <div
               key={index}
-              className="border flex flex-col justify-center items-center py-3 px-10 w-[30vw]"
+              className="border flex flex-col justify-center items-center py-3 px-10 w-[30vw] bg-white"
             >
               <div className="">
                 <img src={car.img} alt={car.img} />
               </div>
-              <div className="flex items-center gap-20">
+              <div className="flex items-center gap-24">
                 <div className="flex items-center gap-2">
-                  <h3>{car.name}</h3>
+                  <h3 className="font-bold">{car.name}</h3>
                   <h4>{car.model}</h4>
                 </div>
                 <div className="">
-                  <p>€ {car.price}</p>
+                  <p className="font-bold">
+                    <span className="text-primary">€</span> {car.price}
+                  </p>
                 </div>
               </div>
             </div>
           );
         })}
-        <button onClick={handleMoreCars} className="border px-6 py-2 bg-primary text-white myButton">
+        <button
+          onClick={handleMoreCars}
+          className="border px-6 py-2 bg-primary text-white myButton"
+        >
           SEE MORE
         </button>
       </div>
