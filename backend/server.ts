@@ -38,6 +38,7 @@ const carsSchema = new Schema({
   name: String,
   model: String,
   fuel: String,
+  transmission: String,
   price: Number,
   km: Number,
   year: Number,

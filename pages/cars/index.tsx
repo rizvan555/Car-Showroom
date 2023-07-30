@@ -8,7 +8,8 @@ interface Cars {
   img: string;
   name: string;
   model: string;
-  fuel: number;
+  fuel: string;
+  transmission: string;
   price: number;
   km: number;
   year: number;
@@ -54,7 +55,7 @@ function Cars() {
   };
 
   return (
-    <div className="flex flex-col mx-auto px-2 pt-10 py-8 relative">
+    <div className="flex flex-col mx-auto pt-10 py-8 relative">
       <div
         className={`flex items-center gap-8 mb-20 ${
           isFilteredCarsOpen ? 'blur-background' : ''
@@ -101,7 +102,7 @@ function Cars() {
       {filteredCars.map((car, index) => (
         <div
           key={index}
-          className={`absolute flex flex-col justify-center items-center w-[90vw] h-[95vh] bg-white border border-gray-300 mx-16 ${
+          className={`absolute flex justify-center items-center gap-10 w-[95vw] h-[95vh] bg-white border border-gray-300 mx-6 ${
             isFilteredCarsOpen ? 'visible' : 'invisible'
           }`}
         >
@@ -111,20 +112,32 @@ function Cars() {
           >
             <AiOutlineCloseCircle size={30} />
           </button>
-          <Image src={car.img} alt="image" width={500} height={400} />
-          <div className="flex gap-56 mt-10">
-            <div className="flex gap-4">
-              <p className="text-3xl font-bold">{car.name}</p>
-              <p className="text-3xl">{car.model}</p>
+          <div className="flex flex-col border px-10 py-10 ml-4 rounded">
+            <Image src={car.img} alt="image" width={600} height={400} />
+          </div>
+          <div className="flex flex-col px-10 py-10 gap-2 border-r border-l w-[35vw]">
+            <div className="flex gap-3 font-extrabold ">
+              <p className="text-2xl"> {car.name}</p>
+              <p className="text-2xl"> {car.model}</p>
             </div>
-            <div className="flex flex-col">
-              <p className="text-3xl">
-                <span className="text-primary">€</span> {car.price}
-              </p>
-              <p className="text-xl">year: {car.year}</p>
-              <p className="text-xl">kilometr: {car.km} km</p>
-              <p className="text-xl">ps: {car.ps} hp</p>
-            </div>
+            <p className="text-base">{car.transmission}</p>
+            <p className="text-3xl mb-6">
+              {car.price}
+              <span className="text-primary ml-2">€</span>
+            </p>
+            <hr />
+            <p className="text-l mt-6">
+              <span className="font-bold">Erstzulassung:</span> {car.year}
+            </p>
+            <p className="text-l">
+              <span className="font-bold">Kraftstoff:</span> {car.fuel}
+            </p>
+            <p className="text-l">
+              <span className="font-bold">Kilometerstand:</span> {car.km} km
+            </p>
+            <p className="text-l">
+              <span className="font-bold">Leistung:</span> {car.ps} hp
+            </p>
           </div>
         </div>
       ))}
