@@ -8,7 +8,11 @@ interface Cars {
   img: string;
   name: string;
   model: string;
+  fuel: number;
   price: number;
+  km: number;
+  year: number;
+  ps: number;
 }
 
 function Cars() {
@@ -97,7 +101,7 @@ function Cars() {
       {filteredCars.map((car, index) => (
         <div
           key={index}
-          className={`absolute flex flex-col justify-center items-center w-[90vw] h-[95vh] bg-white border border-gray-300 py-5 mx-16 ${
+          className={`absolute flex flex-col justify-center items-center w-[90vw] h-[95vh] bg-white border border-gray-300 mx-16 ${
             isFilteredCarsOpen ? 'visible' : 'invisible'
           }`}
         >
@@ -110,10 +114,17 @@ function Cars() {
           <Image src={car.img} alt="image" width={500} height={400} />
           <div className="flex gap-56 mt-10">
             <div className="flex gap-4">
-              <p>{car.name}</p>
-              <p>{car.model}</p>
+              <p className="text-3xl font-bold">{car.name}</p>
+              <p className="text-3xl">{car.model}</p>
             </div>
-            <p>{car.price}</p>
+            <div className="flex flex-col">
+              <p className="text-3xl">
+                <span className="text-primary">€</span> {car.price}
+              </p>
+              <p className="text-xl">year: {car.year}</p>
+              <p className="text-xl">kilometr: {car.km} km</p>
+              <p className="text-xl">ps: {car.ps} hp</p>
+            </div>
           </div>
         </div>
       ))}
