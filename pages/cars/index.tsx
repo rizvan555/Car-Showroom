@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 interface Cars {
   _id: string;
@@ -14,6 +15,8 @@ function Cars() {
   const [cars, setCars] = useState<Cars[]>([]);
   const [visibility, setVisibility] = useState<number>(6);
   const [filteredCars, setFilteredCars] = useState<Cars[]>([]);
+  const [isFilteredCarsOpen, setIsFilteredCarsOpen] = useState<boolean>(false);
+  const [close, setClose] = useState<boolean>(true);
 
   useEffect(() => {
     const getCars = async () => {
@@ -37,14 +40,20 @@ function Cars() {
     console.log(filteredCar);
     if (filteredCar) {
       setFilteredCars([filteredCar]);
+      setIsFilteredCarsOpen(true);
     }
+  };
+
+  const handleCloseFilteredCars = () => {
+    setIsFilteredCarsOpen(false);
+    setClose(false);
   };
 
   return (
     <div className="flex flex-col mx-auto px-2 pt-10 py-8 relative">
       <div
         className={`flex items-center gap-8 mb-20 ${
-          filteredCars.length > 0 ? 'blur-background' : ''
+          isFilteredCarsOpen ? 'blur-background' : ''
         }`}
       >
         <h1 className="text-6xl font-bold">OUR CARS</h1>
@@ -56,7 +65,7 @@ function Cars() {
             <button
               key={index}
               className={`border flex flex-col justify-center items-center py-3 px-10 w-[30vw] bg-white active:scale-105 transition-all ${
-                filteredCars.length > 0 ? 'blur-background' : ''
+                isFilteredCarsOpen ? 'blur-background' : ''
               }`}
               onClick={() => handleCarItem(car._id)}
             >
@@ -84,11 +93,20 @@ function Cars() {
           SEE MORE
         </button>
       </div>
+
       {filteredCars.map((car, index) => (
         <div
           key={index}
-          className="absolute flex flex-col justify-center items-center w-[90vw] h-[90vh] bg-white border border-gray-300 py-5 mx-16 "
+          className={`absolute flex flex-col justify-center items-center w-[90vw] h-[95vh] bg-white border border-gray-300 py-5 mx-16 ${
+            isFilteredCarsOpen ? 'visible' : 'invisible'
+          }`}
         >
+          <button
+            onClick={handleCloseFilteredCars}
+            className="absolute top-7 right-10"
+          >
+            <AiOutlineCloseCircle size={30} />
+          </button>
           <Image src={car.img} alt="image" width={500} height={400} />
           <div className="flex gap-56 mt-10">
             <div className="flex gap-4">
