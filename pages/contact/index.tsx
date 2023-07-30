@@ -10,7 +10,7 @@ function Contact() {
         <hr className="hr-line-contact" />
       </div>
       <div className="flex justify-center items-center gap-20">
-        <div className="flex flex-col w-[40vw] gap-6 my-10">
+        <div className="flex flex-col w-[40vw] gap-8 my-10">
           <input
             type="text"
             placeholder="Name"
@@ -29,7 +29,7 @@ function Contact() {
           <textarea
             name="Message"
             cols={30}
-            rows={8}
+            rows={7}
             className="border border-t-0 border-l-0 border-r-0 text-[#9ba3af]"
           >
             Message:
