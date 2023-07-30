@@ -37,7 +37,11 @@ const carsSchema = new Schema({
   img: String,
   name: String,
   model: String,
+  fuel: String,
   price: Number,
+  km: Number,
+  year: Number,
+  ps: Number,
 });
 
 export const Cars = model('Cars', carsSchema);
