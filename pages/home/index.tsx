@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction } from 'react';
-import audiBg from '../../resourse/images/audiBg.jpg';
+import audiBg from '../../resourse/images/audiBg.webp';
 import audi1 from '../../resourse/images/audi1.jpeg';
-import audi2 from '../../resourse/images/audi2.png';
+import audibg1 from '../../resourse/images/audibg1.png';
 import Carousel from '../home/Carousel';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -22,14 +22,14 @@ function HomePage({ light, setLight }: HomePageProps) {
             backgroundSize: 'cover',
           }}
         >
-          <div>
-            {/* <button
+          {/* <div>
+            <button
               className="text-white border py-1 px-5"
               onClick={() => setLight(!light)}
             >
               D/L
-            </button> */}
-          </div>
+            </button>
+          </div> */}
           <main>
             <Carousel light={light} setLight={setLight} />
           </main>
@@ -38,7 +38,7 @@ function HomePage({ light, setLight }: HomePageProps) {
         <div
           className="h-[100vh] text-black"
           style={{
-            backgroundImage: `url(${audi2.src})`,
+            backgroundImage: `url(${audibg1.src})`,
             backgroundSize: 'cover',
           }}
         >

@@ -65,13 +65,13 @@ function Cars() {
   };
 
   return (
-    <div className="flex flex-col mx-auto pt-10 py-8 relative">
+    <div className="flex flex-col mx-auto pt-10 py-8 relative bg-[#f5f5f5]">
       <div
         className={`flex items-center gap-8 mb-20 ${
           isFilteredCarsOpen ? 'blur-background' : ''
         }`}
       >
-        <h1 className="text-6xl font-bold">OUR CARS</h1>
+        <h1 className="text-6xl font-bold px-5">OUR CARS</h1>
         <hr className="hr-line" />
       </div>
       <div className="flex flex-wrap gap-10 justify-center mt-2 mb-6 ">
