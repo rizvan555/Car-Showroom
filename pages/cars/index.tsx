@@ -2,6 +2,14 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
+import {
+  BsFillFuelPumpDieselFill,
+  BsFillPersonFill,
+  BsSpeedometer2,
+} from 'react-icons/bs';
+import { MdAppRegistration } from 'react-icons/md';
+import { TbRoad } from 'react-icons/tb';
+import { PiEngineDuotone } from 'react-icons/pi';
 
 interface Cars {
   _id: string;
@@ -10,6 +18,8 @@ interface Cars {
   model: string;
   fuel: string;
   transmission: string;
+  displacement: number;
+  owner: number;
   price: number;
   km: number;
   year: number;
@@ -115,7 +125,7 @@ function Cars() {
           <div className="flex flex-col border px-10 py-10 ml-4 rounded">
             <Image src={car.img} alt="image" width={600} height={400} />
           </div>
-          <div className="flex flex-col px-10 py-10 gap-2 border-r border-l w-[35vw]">
+          <div className="flex flex-col px-10 py-6 gap-2 border-r border-l w-[35vw]">
             <div className="flex gap-3 font-extrabold ">
               <p className="text-2xl"> {car.name}</p>
               <p className="text-2xl"> {car.model}</p>
@@ -126,17 +136,29 @@ function Cars() {
               <span className="text-primary ml-2">€</span>
             </p>
             <hr />
-            <p className="text-l mt-6">
+            <p className="flex items-center gap-3 text-l mt-6">
+              <MdAppRegistration size={22} />
               <span className="font-bold">Erstzulassung:</span> {car.year}
             </p>
-            <p className="text-l">
+            <p className="flex items-center gap-4 text-l">
+              <BsFillFuelPumpDieselFill size={20} />
               <span className="font-bold">Kraftstoff:</span> {car.fuel}
             </p>
-            <p className="text-l">
+            <p className="flex items-center gap-3 text-l">
+              <TbRoad size={20} />
               <span className="font-bold">Kilometerstand:</span> {car.km} km
             </p>
-            <p className="text-l">
+            <p className="flex items-center gap-3 text-l">
+              <PiEngineDuotone size={22} />
+              <span className="font-bold">Hubraum:</span> {car.displacement}
+            </p>
+            <p className="flex items-center gap-3 text-l">
+              <BsSpeedometer2 size={20} />
               <span className="font-bold">Leistung:</span> {car.ps} hp
+            </p>
+            <p className="flex items-center gap-3 text-l">
+              <BsFillPersonFill size={20} />
+              <span className="font-bold">Farhrzeughalter:</span> {car.owner}
             </p>
           </div>
         </div>
