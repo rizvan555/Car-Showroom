@@ -13,8 +13,8 @@ export default function Home() {
   return (
     <div>
       <HomePage light={light} setLight={setLight} />
-      <About />
       <Cars />
+      <About />
       <News />
       <Contact />
     </div>
