@@ -7,7 +7,7 @@ function Header() {
   return (
     <div className="flex items-center justify-between px-10 bg-black">
       <Link href="/">
-        <h1 className="text-white text-2xl">MyCar</h1>
+        <h1 className="text-white text-2xl tracking-wider">LuxuryCars</h1>
       </Link>
       <div className="flex items-center gap-10">
         <Navbar />

@@ -9,7 +9,7 @@ import { useState } from 'react';
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
-  const [light, setLight] = useState<boolean>(false);
+  const [light, setLight] = useState<boolean>(true);
   return (
     <div>
       <HomePage light={light} setLight={setLight} />

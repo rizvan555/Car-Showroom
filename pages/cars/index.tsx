@@ -74,12 +74,12 @@ function Cars() {
         <h1 className="text-6xl font-bold">OUR CARS</h1>
         <hr className="hr-line" />
       </div>
-      <div className="flex flex-wrap gap-10 justify-center mt-2 mb-6">
+      <div className="flex flex-wrap gap-10 justify-center mt-2 mb-6 ">
         {cars.slice(0, visibility).map((car, index) => {
           return (
             <button
               key={index}
-              className={`border flex flex-col justify-center items-center py-3 px-10 w-[30vw] bg-white active:scale-105 transition-all ${
+              className={`flex flex-col justify-center items-center py-3 px-10 w-[30vw] bg-white hover:scale-105 transition-all item ${
                 isFilteredCarsOpen ? 'blur-background' : ''
               }`}
               onClick={() => handleCarItem(car._id)}
@@ -112,7 +112,7 @@ function Cars() {
       {filteredCars.map((car, index) => (
         <div
           key={index}
-          className={`absolute flex justify-center items-center gap-10 w-[95vw] h-[95vh] bg-white border border-gray-300 mx-6 ${
+          className={`absolute flex justify-center items-center gap-8 w-[95vw] h-[95vh] bg-white border border-gray-300 mx-6 item ${
             isFilteredCarsOpen ? 'visible' : 'invisible'
           }`}
         >
@@ -122,10 +122,10 @@ function Cars() {
           >
             <AiOutlineCloseCircle size={30} />
           </button>
-          <div className="flex flex-col border px-10 py-10 ml-4 rounded">
+          <div className="flex flex-col border rounded px-10 py-10 ml-4  w-[55vw] h-[65vh]">
             <Image src={car.img} alt="image" width={600} height={400} />
           </div>
-          <div className="flex flex-col px-10 py-6 gap-2 border-r border-l w-[35vw]">
+          <div className="flex flex-col px-10 py-10 gap-2 border-r border-l w-[32vw]">
             <div className="flex gap-3 font-extrabold ">
               <p className="text-2xl"> {car.name}</p>
               <p className="text-2xl"> {car.model}</p>

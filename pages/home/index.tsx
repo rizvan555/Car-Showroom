@@ -23,12 +23,12 @@ function HomePage({ light, setLight }: HomePageProps) {
           }}
         >
           <div>
-            <button
+            {/* <button
               className="text-white border py-1 px-5"
               onClick={() => setLight(!light)}
             >
               D/L
-            </button>
+            </button> */}
           </div>
           <main>
             <Carousel light={light} setLight={setLight} />
