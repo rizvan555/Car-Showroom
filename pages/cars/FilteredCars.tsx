@@ -62,7 +62,7 @@ function FilteredCars({
             <AiOutlineCloseCircle size={30} />
           </button>
           <div className="flex flex-col gap-5 items-center ">
-            <div className="flex flex-col border rounded px-10 ml-4  w-[55vw] h-[50vh]">
+            <div className="flex flex-col border rounded px-10 ml-4  w-[55vw] h-[50vh] item">
               {selectedImages ? (
                 <Image
                   src={selectedImages}
@@ -74,8 +74,8 @@ function FilteredCars({
                 <Image src={car.img} alt="image" width={500} height={300} />
               )}
             </div>
-            <div className="flex gap-3 w-[50vw]">
-              <button className="border px-2 w-[13vw]">
+            <div className="flex gap-5 w-[55vw] ml-4">
+              <button className="border px-2 w-[14vw] hover:scale-110 transition-all item">
                 <Image
                   src={car.img1}
                   alt="image"
@@ -84,7 +84,7 @@ function FilteredCars({
                   onClick={() => handleImages(car.img1)}
                 />
               </button>
-              <button className="border px-2 w-[13vw]">
+              <button className="border px-2 w-[14vw] hover:scale-110 transition-all item">
                 <Image
                   src={car.img2}
                   alt="image"
@@ -93,7 +93,7 @@ function FilteredCars({
                   onClick={() => handleImages(car.img2)}
                 />
               </button>
-              <button className="border px-2 w-[13vw]">
+              <button className="border px-2 w-[14vw] hover:scale-110 transition-all item">
                 <Image
                   src={car.img3}
                   alt="image"
@@ -102,7 +102,7 @@ function FilteredCars({
                   onClick={() => handleImages(car.img3)}
                 />
               </button>
-              <button className="border px-2 w-[13vw]">
+              <button className="border px-2 w-[14vw] hover:scale-110 transition-all item">
                 <Image
                   src={car.img4}
                   alt="image"
