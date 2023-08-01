@@ -10,6 +10,7 @@ import {
 import { MdAppRegistration } from 'react-icons/md';
 import { TbRoad } from 'react-icons/tb';
 import { PiEngineDuotone } from 'react-icons/pi';
+import SliderImages from './SliderImages';
 
 interface Cars {
   _id: string;
@@ -122,8 +123,40 @@ function Cars() {
           >
             <AiOutlineCloseCircle size={30} />
           </button>
-          <div className="flex flex-col border rounded px-10 py-10 ml-4  w-[55vw] h-[65vh]">
-            <Image src={car.img} alt="image" width={600} height={400} />
+          <div className="flex flex-col gap-5 items-center ">
+            <div className="flex flex-col border rounded px-10 ml-4  w-[55vw] h-[50vh]">
+              <Image src={car.img} alt="image" width={500} height={300} />
+            </div>
+            <div className="flex gap-3 w-[50vw]">
+              <Image
+                src={car.img}
+                alt="image"
+                width={150}
+                height={50}
+                className="border px-2 w-[13vw]"
+              />
+              <Image
+                src={car.img}
+                alt="image"
+                width={150}
+                height={50}
+                className="border px-2 w-[13vw]"
+              />
+              <Image
+                src={car.img}
+                alt="image"
+                width={150}
+                height={50}
+                className="border px-2 w-[13vw]"
+              />
+              <Image
+                src={car.img}
+                alt="image"
+                width={150}
+                height={50}
+                className="border px-2 w-[13vw]"
+              />
+            </div>
           </div>
           <div className="flex flex-col px-10 py-10 gap-2 border-r border-l w-[32vw]">
             <div className="flex gap-3 font-extrabold ">
