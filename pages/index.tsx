@@ -1,5 +1,6 @@
 import { Inter } from 'next/font/google';
 import HomePage from './home';
+import FindCar from './findcar';
 import About from './about';
 import Cars from './cars';
 import News from './news';
@@ -13,8 +14,9 @@ export default function Home() {
   return (
     <div>
       <HomePage light={light} setLight={setLight} />
-      <Cars />
+      <FindCar />
       <About />
+      <Cars />
       <News />
       <Contact />
     </div>
