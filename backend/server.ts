@@ -35,6 +35,10 @@ app.listen(port, () => {
 
 const carsSchema = new Schema({
   img: String,
+  img1: String,
+  img2: String,
+  img3: String,
+  img4: String,
   name: String,
   model: String,
   fuel: String,
