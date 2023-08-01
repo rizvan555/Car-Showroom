@@ -40,6 +40,12 @@ function FilteredCars({
   isFilteredCarsOpen,
   handleCloseFilteredCars,
 }: FilteredCarsProps) {
+  const [selectedImages, setSelectedImages] = useState<string | null>(null);
+
+  const handleImages = (carImg: any) => {
+    setSelectedImages(carImg);
+  };
+
   return (
     <div className="absolute">
       {filteredCars.map((car, index) => (
@@ -57,11 +63,26 @@ function FilteredCars({
           </button>
           <div className="flex flex-col gap-5 items-center ">
             <div className="flex flex-col border rounded px-10 ml-4  w-[55vw] h-[50vh]">
-              <Image src={car.img} alt="image" width={500} height={300} />
+              {selectedImages ? (
+                <Image
+                  src={selectedImages}
+                  alt="image"
+                  width={500}
+                  height={300}
+                />
+              ) : (
+                <Image src={car.img} alt="image" width={500} height={300} />
+              )}
             </div>
             <div className="flex gap-3 w-[50vw]">
               <button className="border px-2 w-[13vw]">
-                <Image src={car.img1} alt="image" width={150} height={50} />
+                <Image
+                  src={car.img1}
+                  alt="image"
+                  width={150}
+                  height={50}
+                  onClick={() => handleImages(car.img1)}
+                />
               </button>
               <button className="border px-2 w-[13vw]">
                 <Image
@@ -69,6 +90,7 @@ function FilteredCars({
                   alt="image"
                   width={150}
                   height={50}
+                  onClick={() => handleImages(car.img2)}
                 />
               </button>
               <button className="border px-2 w-[13vw]">
@@ -77,6 +99,7 @@ function FilteredCars({
                   alt="image"
                   width={150}
                   height={50}
+                  onClick={() => handleImages(car.img3)}
                 />
               </button>
               <button className="border px-2 w-[13vw]">
@@ -85,6 +108,7 @@ function FilteredCars({
                   alt="image"
                   width={150}
                   height={50}
+                  onClick={() => handleImages(car.img4)}
                 />
               </button>
             </div>
