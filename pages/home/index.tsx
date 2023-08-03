@@ -1,6 +1,5 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 import audiBg from '../../resourse/images/audiBg.webp';
-import audi1 from '../../resourse/images/audi1.jpeg';
 import audibg1 from '../../resourse/images/audibg1.png';
 import Carousel from '../home/Carousel';
 import 'slick-carousel/slick/slick.css';
@@ -10,8 +9,33 @@ interface HomePageProps {
   light: boolean;
   setLight: Dispatch<SetStateAction<boolean>>;
 }
+interface PropsCarousel {
+  dots: boolean;
+  infinite: boolean;
+  speed: number;
+  slidesToShow: number;
+  slidesToScroll: number;
+  autoplay: boolean;
+  autoplaySpeed: number;
+  arrows: boolean;
+  light: boolean;
+  setLight: Dispatch<SetStateAction<boolean>>;
+}
 
 function HomePage({ light, setLight }: HomePageProps) {
+  const settings: PropsCarousel = {
+    dots: true,
+    infinite: true,
+    speed: 800,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+    light: light,
+    setLight: setLight,
+  };
+
   return (
     <div>
       {light ? (
@@ -22,16 +46,8 @@ function HomePage({ light, setLight }: HomePageProps) {
             backgroundSize: 'cover',
           }}
         >
-          {/* <div>
-            <button
-              className="text-white border py-1 px-5"
-              onClick={() => setLight(!light)}
-            >
-              D/L
-            </button>
-          </div> */}
           <main>
-            <Carousel light={light} setLight={setLight} />
+            <Carousel {...settings} />
           </main>
         </div>
       ) : (
@@ -51,7 +67,7 @@ function HomePage({ light, setLight }: HomePageProps) {
             </button>
           </div>
           <main>
-            <Carousel light={light} setLight={setLight} />
+            <Carousel {...settings} />
           </main>
         </div>
       )}

@@ -4,11 +4,11 @@ import Slider from 'react-slick';
 interface PropsCarousel {
   dots: boolean;
   infinite: boolean;
-  speed: Number;
-  slidesToShow: Number;
-  slidesToScroll: Number;
+  speed: number;
+  slidesToShow: number;
+  slidesToScroll: number;
   autoplay: boolean;
-  autoplaySpeed: Number;
+  autoplaySpeed: number;
   arrows: boolean;
   light: boolean;
   setLight: Dispatch<SetStateAction<boolean>>;

@@ -92,7 +92,7 @@ function FindCar() {
         SEARCH
       </button>
       {filteredCars.map((car, index) => (
-        <div className="flex gap-10 px-6 py-10 w-[72vw] border">
+        <div className="flex gap-10 px-6 py-10 w-[72vw] border" key={index}>
           <div>
             <Image src={car.img} alt="image" width={300} height={200} />
           </div>
