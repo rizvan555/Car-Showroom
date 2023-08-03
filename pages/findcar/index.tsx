@@ -103,7 +103,7 @@ function FindCar() {
             </div>
             <div className="flex flex-col">
               <p className="text-base">{car.transmission}</p>
-              <p className="flex items-center gap-3 text-l mt-6">
+              <p className="flex items-center gap-3 text-l mt-2">
                 <MdAppRegistration size={22} />
                 <span className="font-bold">Erstzulassung:</span> {car.year}
               </p>
