@@ -12,7 +12,7 @@ function Navbar() {
   return (
     <div className="flex gap-10 px-5 py-4 ">
       {navbar.map((nav, index) => (
-        <div className="hvr-underline-from-center">
+        <div className="hvr-underline-from-center" key={index}>
           <Link
             href={nav.path}
             passHref
