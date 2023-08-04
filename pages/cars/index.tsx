@@ -81,7 +81,7 @@ function Cars() {
               onClick={() => handleCarItem(car._id)}
             >
               <div className="">
-                <img src={car.img} alt={car.img} />
+                <Image src={car.img} alt={car.img} width={300} height={100} />
               </div>
               <div className="flex items-center gap-24">
                 <div className="flex items-center gap-2">
@@ -105,7 +105,7 @@ function Cars() {
         </button>
       </div>
       <FilteredCars
-        filteredCars={filteredCars}
+        filteredCars={isFilteredCarsOpen ? filteredCars : []}
         isFilteredCarsOpen={isFilteredCarsOpen}
         handleCloseFilteredCars={handleCloseFilteredCars}
       />

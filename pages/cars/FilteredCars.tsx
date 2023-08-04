@@ -30,7 +30,7 @@ interface Cars {
 }
 
 interface FilteredCarsProps {
-  filteredCars: Cars[];
+  filteredCars?: Cars[];
   isFilteredCarsOpen: boolean;
   handleCloseFilteredCars: () => void;
 }
@@ -46,6 +46,9 @@ function FilteredCars({
     setSelectedImages(carImg);
   };
 
+  if (!filteredCars || filteredCars.length === 0) {
+    return null;
+  }
   return (
     <div className="absolute">
       {filteredCars.map((car, index) => (
