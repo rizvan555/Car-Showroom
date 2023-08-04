@@ -33,6 +33,7 @@ function FindCar() {
   const [cars, setCars] = useState<Cars[]>([]);
   const [selectedName, setSelectedName] = useState<string>('');
   const [selectedModel, setSelectedModel] = useState<string>('');
+  const [selectedYear, setSelectedYear] = useState<number | undefined>();
   const [filteredCars, setFilteredCars] = useState<Cars[]>([]);
 
   useEffect(() => {
@@ -50,7 +51,10 @@ function FindCar() {
 
   const handleCarSearch = () => {
     const filteredCars = cars.filter(
-      (car) => car.name === selectedName && car.model === selectedModel
+      (car) =>
+        car.name === selectedName &&
+        car.model === selectedModel &&
+        car.year === selectedYear
     );
     console.log(filteredCars);
     setFilteredCars(filteredCars);
@@ -81,6 +85,18 @@ function FindCar() {
           {cars.map((car, index) => (
             <option value={car.model} key={index}>
               {car.model}
+            </option>
+          ))}
+        </select>
+        <select
+          className="border w-[25vw] px-2 py-2"
+          value={selectedYear}
+          onChange={(e) => setSelectedYear(parseInt(e.target.value))}
+        >
+          <option value="">Erstzulassung</option>
+          {cars.map((car, index) => (
+            <option value={car.year} key={index}>
+              {car.year}
             </option>
           ))}
         </select>
