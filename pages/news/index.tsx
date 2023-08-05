@@ -4,15 +4,15 @@ import Mercedes from '../../resourse/images/Mercedes.webp';
 function News() {
   return (
     <div
-      className="flex flex-col justify-center  mx-auto px-20 py-32 text-white"
+      className="flex flex-col justify-center mx-auto px-20 py-32 text-white"
       style={{
         backgroundImage: `url(${Mercedes.src})`,
         backgroundSize: 'cover',
       }}
     >
       <div className="flex items-center gap-8  mb-20">
-        <h1 className="text-6xl font-bold">NEWS</h1>
-        <hr className="hr-line" />
+        <h1 className="text-6xl font-bold tracking-wider">NEWS</h1>
+        <hr className="hr-line-news" />
       </div>
       <div className="mb-16">
         <p className="text-xl">

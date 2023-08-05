@@ -1,11 +1,12 @@
+import Link from 'next/link';
 import React from 'react';
 import { BiSearch } from 'react-icons/bi';
 
 function SearchButton() {
   return (
-    <div className=" text-white">
+    <Link href="/findcar" className=" text-white">
       <BiSearch size={23} />
-    </div>
+    </Link>
   );
 }
 

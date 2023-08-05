@@ -10,13 +10,19 @@ div {
 
 .hr-line {
   width: 60%;
-  height: 1px;
+  height: 2px;
+  background-color: black;
+  margin: 16px 0;
+}
+.hr-line-news {
+  width: 75%;
+  height: 2px;
   background-color: black;
   margin: 16px 0;
 }
 .hr-line-contact {
   width: 60%;
-  height: 1px;
+  height: 2px;
   background-color: black;
   margin: 16px 0;
 }
@@ -29,6 +35,7 @@ div {
   background-color: white;
   color: #00de1b;
   border: 1px solid #00de1b;
+  transition-duration: 0.5s;
 }
 .blur-background {
   filter: blur(8px);
