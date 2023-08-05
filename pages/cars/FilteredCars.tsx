@@ -54,7 +54,7 @@ function FilteredCars({
       {filteredCars.map((car, index) => (
         <div
           key={index}
-          className={`absolute flex justify-center items-center gap-8 w-[95vw] h-[95vh] bg-white border border-gray-300 mx-6 item ${
+          className={`absolute flex justify-center items-center gap-8 w-[95vw] h-[125vh] bg-white border border-gray-300 mx-6 item ${
             isFilteredCarsOpen ? 'visible' : 'invisible'
           }`}
         >
@@ -65,7 +65,7 @@ function FilteredCars({
             <AiOutlineCloseCircle size={30} />
           </button>
           <div className="flex flex-col gap-5 items-center ">
-            <div className="flex flex-col border rounded px-10 ml-4  w-[55vw] h-[50vh] item">
+            <div className="flex flex-col border rounded px-10 ml-4 w-[55vw] h-[50vh] item">
               {selectedImages ? (
                 <Image
                   src={selectedImages}

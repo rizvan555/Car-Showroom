@@ -14,23 +14,23 @@ function Contact() {
           <input
             type="text"
             placeholder="Name"
-            className="border border-t-0 border-l-0 border-r-0 bg-[#f5f5f5]"
+            className="border border-t-0 border-l-0 border-r-0 bg-[#f5f5f5] focus:outline-none"
           />
           <input
             type="tel"
             placeholder="Phone Number"
-            className="border border-t-0 border-l-0 border-r-0 bg-[#f5f5f5]"
+            className="border border-t-0 border-l-0 border-r-0 bg-[#f5f5f5] focus:outline-none"
           />
           <input
             type="email"
             placeholder="Email"
-            className="border border-t-0 border-l-0 border-r-0 bg-[#f5f5f5]"
+            className="border border-t-0 border-l-0 border-r-0 bg-[#f5f5f5] focus:outline-none"
           />
           <textarea
             name="Message"
             cols={30}
             rows={7}
-            className="border border-t-0 border-l-0 border-r-0 text-[#9ba3af] bg-[#f5f5f5]"
+            className="border border-t-0 border-l-0 border-r-0 text-[#9ba3af] bg-[#f5f5f5] focus:outline-none"
           >
             Message:
           </textarea>

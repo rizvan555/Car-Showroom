@@ -61,9 +61,11 @@ function FindCar() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center my-20 gap-10">
-      <h3>FIND YOUR CAR</h3>
-      <div className="flex gap-3">
+    <div className="flex flex-col my-20 gap-10 item py-10 w-[90%] mx-auto">
+      <div className="flex justify-start ml-20 font-bold text-2xl text-primary">
+        <h3 className="">FIND YOUR CAR</h3>
+      </div>
+      <div className="flex gap-3 items-center justify-center">
         <select
           className="border w-[25vw] px-2 py-2"
           value={selectedName}
@@ -101,12 +103,14 @@ function FindCar() {
           ))}
         </select>
       </div>
-      <button
-        className="border px-4 py-1 rounded myButton"
-        onClick={handleCarSearch}
-      >
-        SEARCH
-      </button>
+      <div className="flex justify-end mr-20">
+        <button
+          className="border px-4 py-1 myButton"
+          onClick={handleCarSearch}
+        >
+          Search
+        </button>
+      </div>
       {filteredCars.map((car, index) => (
         <div className="flex gap-10 px-6 py-10 w-[72vw] border" key={index}>
           <div>
