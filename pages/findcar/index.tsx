@@ -66,7 +66,7 @@ function FindCar() {
   const handleCleanFilter = () => {
     setSelectedName('');
     setSelectedModel('');
-    setSelectedYear(undefined);
+    setSelectedYear('');
   };
 
   return (
