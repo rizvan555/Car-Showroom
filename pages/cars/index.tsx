@@ -83,7 +83,7 @@ function Cars() {
               <div className="">
                 <Image src={car.img} alt={car.img} width={300} height={100} />
               </div>
-              <div className="flex items-center gap-24">
+              <div className="flex items-center gap-20">
                 <div className="flex items-center gap-2">
                   <h3 className="font-bold">{car.name}</h3>
                   <h4>{car.model}</h4>
