@@ -37,6 +37,19 @@ div {
   border: 1px solid #00de1b;
   transition-duration: 0.5s;
 }
+
+.myButtonBlack {
+  background-color: #fff;
+  color: #00de1b;
+  border: 1px solid #00de1b;
+}
+.myButtonBlack:hover {
+  background-color: #fff;
+  color: #00de1b;
+  border: 1px solid #00de1b;
+  transition-duration: 0.5s;
+}
+
 .blur-background {
   filter: blur(8px);
   -webkit-filter: blur(8px);
