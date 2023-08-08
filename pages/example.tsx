@@ -6,7 +6,7 @@ export default function Example() {
       <header>
         <UserButton afterSignOutUrl="/" />
       </header>
-      <div>Your page's content can go here.</div>
+      <div>Your pages content can go here.</div>
     </>
   );
 }
