@@ -35,6 +35,7 @@ function FindCar() {
   const [selectedModel, setSelectedModel] = useState<string>('');
   const [selectedYear, setSelectedYear] = useState<number | undefined>();
   const [filteredCars, setFilteredCars] = useState<Cars[]>([]);
+  const [showMyMessage, setShowMyMessage] = useState<boolean>(false);
 
   useEffect(() => {
     const getCars = async () => {
@@ -59,6 +60,7 @@ function FindCar() {
       return isNameMatch && isModelMatch && isYearMatch;
     });
     setFilteredCars(filteredCars);
+    setShowMyMessage(filteredCars.length === 0);
   };
 
   const handleCleanFilter = () => {
@@ -114,14 +116,14 @@ function FindCar() {
         </button>
       </div>
 
-      {filteredCars.length === 0 ? (
+      {showMyMessage ? (
         <div className="flex flex-col gap-3">
           <p className="text-2xl text-center tracking-wide">
             Your car was not found.
           </p>
           <div className="flex justify-center">
             <button
-              className="border px-4 py-1 active:scale-95 transition-all "
+              className="border px-4 py-2 active:scale-95 transition-all myButtonBlack"
               onClick={handleCleanFilter}
             >
               Click and try again
