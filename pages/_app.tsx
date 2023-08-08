@@ -4,8 +4,10 @@ import { ClerkProvider } from '@clerk/nextjs';
 import Layout from '../layouts/layout';
 
 export default function App({ Component, pageProps }: AppProps) {
+  const clerkPublishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY; // Replace with your environment variable name
+
   return (
-    <ClerkProvider {...pageProps}>
+    <ClerkProvider publishableKey={clerkPublishableKey}>
       <Layout>
         <Component {...pageProps} />
       </Layout>
