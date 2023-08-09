@@ -3,11 +3,11 @@ import React, { Dispatch, SetStateAction, useState } from 'react';
 
 function Navbar() {
   const [navbar, setNavbar] = useState([
-    { title: 'Home', path: '/', status: true },
-    { title: 'About', path: '/about', status: false },
-    { title: 'Cars', path: '/cars', status: false },
-    { title: 'News', path: '/news', status: false },
-    { title: 'Contact', path: '/contact', status: false },
+    { title: 'HOME', path: '/', status: true },
+    { title: 'ABOUT', path: '/about', status: false },
+    { title: 'CARS', path: '/cars', status: false },
+    { title: 'NEWS', path: '/news', status: false },
+    { title: 'CONTACT', path: '/contact', status: false },
   ]);
 
   const handleNavClick = (index: any) => {
@@ -19,7 +19,7 @@ function Navbar() {
   };
 
   return (
-    <div className="flex gap-4 px-5 py-4 ">
+    <div className="flex items-center gap-3 px-5 py-4 ">
       {navbar.map((nav, index) => (
         <div className="" key={index} onClick={() => handleNavClick(index)}>
           <Link

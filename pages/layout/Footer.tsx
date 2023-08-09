@@ -61,7 +61,7 @@ function Footer() {
         </p>
       </div>
       <div className="flex flex-col w-[20vw] gap-4">
-        <h3 className="text-xl font-bold">MEWSLETTER</h3>
+        <h3 className="text-xl font-bold">NEWSLETTER</h3>
         <input
           type="email"
           placeholder="Enter your Email"
@@ -69,7 +69,10 @@ function Footer() {
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
-        <button className="myButton pl-2 py-2">SUBSCRIBE</button>
+
+        <Link href="/carloading" className="myButton pl-2 py-2">
+          SUBSCRIBE
+        </Link>
       </div>
     </div>
   );
