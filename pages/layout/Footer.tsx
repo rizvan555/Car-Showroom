@@ -61,7 +61,7 @@ function Footer() {
         </p>
       </div>
       <div className="flex flex-col w-[20vw] gap-4">
-        <h3 className="text-xl font-bold">MEWSLETTER</h3>
+        <h3 className="text-xl font-bold">NEWSLETTER</h3>
         <input
           type="email"
           placeholder="Enter your Email"

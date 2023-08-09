@@ -1,6 +1,6 @@
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
-import { ClerkProvider } from '@clerk/nextjs';
+import { ClerkProvider, SignIn, SignUp } from '@clerk/nextjs';
 import Layout from '../layouts/layout';
 
 export default function App({ Component, pageProps }: AppProps) {

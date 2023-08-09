@@ -19,7 +19,7 @@ function Navbar() {
   };
 
   return (
-    <div className="flex gap-3 px-5 py-4 ">
+    <div className="flex items-center gap-3 px-5 py-4 ">
       {navbar.map((nav, index) => (
         <div className="" key={index} onClick={() => handleNavClick(index)}>
           <Link
