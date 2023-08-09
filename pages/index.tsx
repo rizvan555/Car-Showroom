@@ -7,7 +7,7 @@ import News from './news';
 import Contact from './contact';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { useUser } from '@clerk/nextjs';
+import { SignIn, useUser } from '@clerk/nextjs';
 
 const inter = Inter({ subsets: ['latin'] });
 

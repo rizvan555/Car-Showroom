@@ -69,7 +69,10 @@ function Footer() {
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
-        <button className="myButton pl-2 py-2">SUBSCRIBE</button>
+
+        <Link href="/carloading" className="myButton pl-2 py-2">
+          SUBSCRIBE
+        </Link>
       </div>
     </div>
   );
