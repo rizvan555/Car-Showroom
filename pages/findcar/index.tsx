@@ -31,10 +31,10 @@ interface Cars {
 
 function FindCar() {
   const [cars, setCars] = useState<Cars[]>([]);
+  const [filteredCars, setFilteredCars] = useState<Cars[]>([]);
   const [selectedName, setSelectedName] = useState<string>('');
   const [selectedModel, setSelectedModel] = useState<string>('');
   const [selectedYear, setSelectedYear] = useState<number | undefined>();
-  const [filteredCars, setFilteredCars] = useState<Cars[]>([]);
   const [showMyMessage, setShowMyMessage] = useState<boolean>(false);
 
   useEffect(() => {
