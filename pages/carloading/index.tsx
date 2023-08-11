@@ -1,6 +1,4 @@
-import { useSession } from '@clerk/nextjs';
 import axios from 'axios';
-import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
 interface Carsettings {
@@ -12,6 +10,21 @@ function CarLoading() {
   const [carsettings, setCarsettings] = useState<Carsettings[]>([]);
   const [selectedCarName, setSelectedCarName] = useState<string>('');
   const [selectedModels, setSelectedModels] = useState<string[]>([]);
+  const [displacement, setDisplacement] = useState<string[]>([
+    '1000',
+    '1200',
+    '1400',
+    '1600',
+    '1800',
+    '2000',
+    '2600',
+    '3000',
+    '4000',
+    '5000',
+    '7500',
+    '8000',
+    '9000',
+  ]);
 
   useEffect(() => {
     const carEmployment = async () => {
@@ -84,6 +97,9 @@ function CarLoading() {
       <div>
         <select className="border w-[10vw]">
           <option value="">Displacement</option>
+          {displacement.map((disCar, index) => (
+            <option key={index}>{disCar} cm</option>
+          ))}
         </select>
       </div>
       <div>
