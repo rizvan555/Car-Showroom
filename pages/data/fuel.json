@@ -1,0 +1,10 @@
+{
+  "fuel": [
+    "Benzin",
+    "Diesel",
+    "Hybrid(Benzin/Elektro)",
+    "Hybrid(Diesel/Elektro)",
+    "Elektro",
+    "Autogas"
+  ]
+}
