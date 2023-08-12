@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import years from '../data/years.json';
 import displacement from '../data/displacement.json';
 import fuel from '../data/fuel.json';
+import transmission from '../data/transmission.json';
 
 interface Carsettings {
   name: string;
@@ -19,6 +20,9 @@ interface DisplacementData {
 
 interface FuelData {
   fuel: string[];
+}
+interface TransmissionData {
+  transmission: string[];
 }
 
 function CarLoading() {
@@ -98,9 +102,11 @@ function CarLoading() {
       <div>
         <select className="border w-[10vw]">
           <option value="">Transmission</option>
-          <option value="">Automatik</option>
-          <option value="">Halbautomatik</option>
-          <option value="">Schaltgetriebe</option>
+          {transmission.transmission.map((trans, index) => (
+            <option value="" key={index}>
+              {trans}
+            </option>
+          ))}
         </select>
       </div>
       <div>
