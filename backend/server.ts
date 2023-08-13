@@ -4,7 +4,6 @@ import { Schema, model } from 'mongoose';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
-import Multer from 'multer';
 import multer from 'multer';
 
 mongoose.connect('mongodb://localhost:27017/cars');
@@ -31,8 +30,8 @@ app.use((req, res, next) => {
   next();
 });
 
-const storage: Multer.StorageEngine = multer.memoryStorage();
-const upload = Multer({
+const storage: multer.StorageEngine = multer.memoryStorage();
+const upload = multer({
   storage,
 });
 
@@ -46,19 +45,21 @@ const carsSchema = new Schema({
   model: String,
   fuel: String,
   transmission: String,
-  displacement: Number,
-  owner: Number,
+  owner: String,
+  displacement: String,
   price: Number,
   km: Number,
   year: Number,
   ps: Number,
 });
+
 export const Cars = model('Cars', carsSchema);
 
 const caremploymentSchema = new Schema({
   name: String,
   models: [String],
 });
+
 export const Caremployment = model('Caremployment', caremploymentSchema);
 
 app.get('/cars', async (req, res) => {
@@ -72,11 +73,12 @@ app.get('/cars', async (req, res) => {
 
 app.post('/cars', async (req, res) => {
   try {
-    const newCar = await Cars.create(req.body);
+    const newCar = await Cars.create(req.body.caremployment);
     res.status(200).json(newCar);
     console.log('Success:', newCar);
   } catch (error) {
     console.log(error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
