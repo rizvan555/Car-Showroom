@@ -30,6 +30,8 @@ function CarLoading() {
   const [imageValue3, setImageValue3] = useState<string>('');
   const [imageValue4, setImageValue4] = useState<string>('');
 
+  const myOwner = ['1', '2', '3', '4', '5'];
+
   useEffect(() => {
     const carEmployment = async () => {
       try {
@@ -55,21 +57,38 @@ function CarLoading() {
     }
   };
 
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    index: number
+  ) => {
     if (e.target.files && e.target.files.length > 0) {
       const file = e.target.files[0];
       const reader = new FileReader();
       reader.onloadend = () => {
         setImageValue(reader.result as string);
+        setImageValue1(reader.result as string);
+        setImageValue2(reader.result as string);
+        setImageValue3(reader.result as string);
+        setImageValue4(reader.result as string);
       };
       reader.readAsDataURL(file);
     } else {
       setImageValue('');
+      setImageValue1('');
+      setImageValue2('');
+      setImageValue3('');
+      setImageValue4('');
     }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const selectedCar = carsettings.find((car) => car.name === selectedCarName);
+
+    if (!selectedCar) {
+      console.log('Selected car not found!');
+      return;
+    }
 
     const employmentData = {
       img: imageValue,
@@ -77,8 +96,8 @@ function CarLoading() {
       img2: imageValue2,
       img3: imageValue3,
       img4: imageValue4,
-      name: nameValue,
-      model: modelValue,
+      name: selectedCarName,
+      model: selectedCar.models[0],
       year: yearsValue,
       fuel: fuelValue,
       transmission: transmissionValue,
@@ -124,16 +143,23 @@ function CarLoading() {
           <div>
             <select
               className="border w-[12vw] px-2 py-1"
+              value={nameValue}
               onChange={handleCarNameCheck}
             >
-              <option value="">Marke</option>
+              <option>Marke</option>
               {carsettings.map((car, index) => (
-                <option key={index}>{car.name}</option>
+                <option key={index} value={car.name}>
+                  {car.name}
+                </option>
               ))}
             </select>
           </div>
           <div>
-            <select className="border w-[12vw] px-2 py-1">
+            <select
+              className="border w-[12vw] px-2 py-1"
+              value={modelValue}
+              onChange={(e) => setModelValue(e.target.value)}
+            >
               <option value="">Model</option>
               {selectedModels.map((model, index) => (
                 <option key={index} value={model}>
@@ -143,7 +169,11 @@ function CarLoading() {
             </select>
           </div>
           <div>
-            <select className="border w-[12vw] px-2 py-1">
+            <select
+              className="border w-[12vw] px-2 py-1"
+              value={yearsValue}
+              onChange={(e) => setYearsValue(e.target.value)}
+            >
               <option value="">Year</option>
               {years.years.map((year, index) => (
                 <option key={index} value={year}>
@@ -153,30 +183,44 @@ function CarLoading() {
             </select>
           </div>
           <div>
-            <select className="border w-[12vw] px-2 py-1">
+            <select
+              className="border w-[12vw] px-2 py-1"
+              value={transmissionValue}
+              onChange={(e) => setTransmissionValue(e.target.value)}
+            >
               <option value="">Transmission</option>
               {transmission.transmission.map((trans, index) => (
-                <option value="" key={index}>
+                <option value={trans} key={index}>
                   {trans}
                 </option>
               ))}
             </select>
           </div>
           <div>
-            <select className="border w-[12vw] px-2 py-1">
+            <select
+              className="border w-[12vw] px-2 py-1"
+              value={fuelValue}
+              onChange={(e) => setFuelValue(e.target.value)}
+            >
               <option value="">Fuel</option>
               {fuel.fuel.map((fueldata, index) => (
-                <option value="" key={index}>
+                <option value={fueldata} key={index}>
                   {fueldata}
                 </option>
               ))}
             </select>
           </div>
           <div>
-            <select className="border w-[12vw] px-2 py-1">
+            <select
+              className="border w-[12vw] px-2 py-1"
+              value={displacementValue}
+              onChange={(e) => setDisplacementValue(e.target.value)}
+            >
               <option value="">Displacement</option>
               {displacement.displacement.map((disCar, index) => (
-                <option key={index}>{disCar} ㎤</option>
+                <option key={index} value={disCar}>
+                  {disCar} ㎤
+                </option>
               ))}
             </select>
           </div>
@@ -187,11 +231,9 @@ function CarLoading() {
               onChange={(e) => setOwnerValue(e.target.value)}
             >
               <option value="">Owner</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
+              {myOwner.map((owner) => (
+                <option value={owner}>{owner}</option>
+              ))}
             </select>
           </div>
 
@@ -225,7 +267,8 @@ function CarLoading() {
             type="file"
             name="image"
             className="border"
-            onChange={handleImageChange}
+            value={imageValue}
+            onChange={(e) => setImageValue(e.target.value)}
           />
         </div>
         <div>
@@ -233,7 +276,8 @@ function CarLoading() {
             type="file"
             name="image"
             className="border"
-            onChange={handleImageChange}
+            value={imageValue1}
+            onChange={(e) => setImageValue1(e.target.value)}
           />
         </div>
         <div>
@@ -241,7 +285,8 @@ function CarLoading() {
             type="file"
             name="image"
             className="border"
-            onChange={handleImageChange}
+            value={imageValue2}
+            onChange={(e) => setImageValue2(e.target.value)}
           />
         </div>
         <div>
@@ -249,7 +294,8 @@ function CarLoading() {
             type="file"
             name="image"
             className="border"
-            onChange={handleImageChange}
+            value={imageValue3}
+            onChange={(e) => setImageValue3(e.target.value)}
           />
         </div>
         <div>
@@ -257,7 +303,8 @@ function CarLoading() {
             type="file"
             name="image"
             className="border"
-            onChange={handleImageChange}
+            value={imageValue4}
+            onChange={(e) => setImageValue4(e.target.value)}
           />
         </div>
       </div>
