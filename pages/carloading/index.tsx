@@ -269,8 +269,8 @@ function CarLoading() {
             type="file"
             name="image"
             className="border"
-            value={imageValue}
-            onChange={(e) => setImageValue(e.target.value)}
+            accept="image/*"
+            onChange={(e) => handleImageChange(e, 0)}
           />
         </div>
         <div>
@@ -278,8 +278,8 @@ function CarLoading() {
             type="file"
             name="image"
             className="border"
-            value={imageValue1}
-            onChange={(e) => setImageValue1(e.target.value)}
+            accept="image/*"
+            onChange={(e) => handleImageChange(e, 1)}
           />
         </div>
         <div>
@@ -287,8 +287,8 @@ function CarLoading() {
             type="file"
             name="image"
             className="border"
-            value={imageValue2}
-            onChange={(e) => setImageValue2(e.target.value)}
+            accept="image/*"
+            onChange={(e) => handleImageChange(e, 2)}
           />
         </div>
         <div>
@@ -296,8 +296,8 @@ function CarLoading() {
             type="file"
             name="image"
             className="border"
-            value={imageValue3}
-            onChange={(e) => setImageValue3(e.target.value)}
+            accept="image/*"
+            onChange={(e) => handleImageChange(e, 3)}
           />
         </div>
         <div>
@@ -305,8 +305,8 @@ function CarLoading() {
             type="file"
             name="image"
             className="border"
-            value={imageValue4}
-            onChange={(e) => setImageValue4(e.target.value)}
+            accept="image/*"
+            onChange={(e) => handleImageChange(e, 4)}
           />
         </div>
       </div>
