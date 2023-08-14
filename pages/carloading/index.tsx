@@ -231,8 +231,10 @@ function CarLoading() {
               onChange={(e) => setOwnerValue(e.target.value)}
             >
               <option value="">Owner</option>
-              {myOwner.map((owner) => (
-                <option value={owner}>{owner}</option>
+              {myOwner.map((owner, index) => (
+                <option value={owner} key={index}>
+                  {owner}
+                </option>
               ))}
             </select>
           </div>
