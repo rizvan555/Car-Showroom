@@ -32,9 +32,7 @@ function About() {
         backgroundSize: 'cover',
       }}
     >
-      <div
-        style={{ backgroundColor: 'rgba(0,0,0,0.6' }}
-      >
+      <motion.div variants={images}>
         <div className="flex items-center gap-8 mb-20">
           <h1 className="text-6xl font-bold z-10">ABOUT US</h1>
           <hr className="hr-line z-10" />
@@ -54,7 +52,7 @@ function About() {
             READ MORE
           </button>
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   );
 }
