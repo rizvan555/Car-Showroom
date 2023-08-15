@@ -23,6 +23,24 @@ interface Cars {
   ps: number;
 }
 
+const variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const images = {
+  hidden: {
+    opacity: 0,
+    y: 30,
+  },
+  show: { opacity: 1, y: 0, transition: { duration: 1 } },
+};
+
 function Cars() {
   const [cars, setCars] = useState<Cars[]>([]);
   const [visibility, setVisibility] = useState<number>(6);
@@ -90,22 +108,18 @@ function Cars() {
         {cars.slice(0, visibility).map((car, index) => {
           return (
             <motion.div
+              variants={variants}
+              initial="hidden"
+              animate="show"
               key={index}
               className={`flex flex-col justify-center items-center py-3 px-10 w-[30vw] bg-white hover:scale-105 transition-all item ${
                 isFilteredCarsOpen ? 'blur-background' : ''
               }`}
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{
-                opacity: isScrolling ? 0 : 1,
-                scale: isScrolling ? 0.5 : 1,
-              }}
-              transition={{
-                duration: 0.4,
-                delay: 0.5,
-                ease: [0, 0.71, 0.2, 1.01],
-              }}
             >
-              <button onClick={() => handleCarItem(car._id)}>
+              <motion.button
+                variants={images}
+                onClick={() => handleCarItem(car._id)}
+              >
                 <div className="hover:scale-105 transition-all">
                   <Image src={car.img} alt={car.img} width={300} height={100} />
                 </div>
@@ -120,7 +134,7 @@ function Cars() {
                     </p>
                   </div>
                 </div>
-              </button>
+              </motion.button>
             </motion.div>
           );
         })}
@@ -131,6 +145,7 @@ function Cars() {
           SEE MORE
         </button>
       </div>
+
       <FilteredCars
         filteredCars={isFilteredCarsOpen ? filteredCars : []}
         isFilteredCarsOpen={isFilteredCarsOpen}

@@ -1,7 +1,10 @@
 import Link from 'next/link';
-import React, { Dispatch, SetStateAction, useState } from 'react';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
 function Navbar() {
+  const myPath = usePathname();
   const [navbar, setNavbar] = useState([
     { title: 'HOME', path: '/', status: true },
     { title: 'ABOUT', path: '/about', status: false },
@@ -19,25 +22,23 @@ function Navbar() {
   };
 
   return (
-    <div className="flex items-center gap-3 px-5 py-4 ">
+    <div className={'flex items-center gap-7 px-5 py-4 '}>
       {navbar.map((nav, index) => (
         <div className="" key={index} onClick={() => handleNavClick(index)}>
-          <Link
-            href={nav.path}
-            passHref
-            key={index}
-            className="text-white tracking-wider leading-5"
-            style={{
-              backgroundColor: nav.status ? '#00de1b ' : '',
-              fontWeight: nav.status ? 'bold' : '',
-              paddingTop: 8,
-              paddingRight: 16,
-              paddingLeft: 16,
-              paddingBottom: 8,
-            }}
-          >
-            {nav.title}
-          </Link>
+          <motion.div whileFocus={{ scale: 1.1 }}>
+            <Link
+              href={nav.path}
+              passHref
+              key={index}
+              className={`text-white tracking-wider leading-5 ${
+                myPath === nav.path
+                  ? 'bg-[#00de1b] font-bold pt-3 pr-6 pl-6 pb-3'
+                  : ''
+              }`}
+            >
+              {nav.title}
+            </Link>
+          </motion.div>
         </div>
       ))}
     </div>
