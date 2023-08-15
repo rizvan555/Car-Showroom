@@ -90,6 +90,7 @@ function Cars() {
         {cars.slice(0, visibility).map((car, index) => {
           return (
             <motion.div
+              key={index}
               className={`flex flex-col justify-center items-center py-3 px-10 w-[30vw] bg-white hover:scale-105 transition-all item ${
                 isFilteredCarsOpen ? 'blur-background' : ''
               }`}
@@ -104,7 +105,7 @@ function Cars() {
                 ease: [0, 0.71, 0.2, 1.01],
               }}
             >
-              <button key={index} onClick={() => handleCarItem(car._id)}>
+              <button onClick={() => handleCarItem(car._id)}>
                 <div className="hover:scale-105 transition-all">
                   <Image src={car.img} alt={car.img} width={300} height={100} />
                 </div>
