@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
 import FilteredCars from './FilteredCars';
+import { motion } from 'framer-motion';
 
 interface Cars {
   _id: string;
@@ -28,6 +29,7 @@ function Cars() {
   const [filteredCars, setFilteredCars] = useState<Cars[]>([]);
   const [isFilteredCarsOpen, setIsFilteredCarsOpen] = useState<boolean>(false);
   const [close, setClose] = useState<boolean>(true);
+  const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
     const getCars = async () => {
@@ -40,6 +42,20 @@ function Cars() {
       }
     };
     getCars();
+  }, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolling(true);
+      setTimeout(() => {
+        setIsScrolling(false);
+      }, 200);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const handleMoreCars = () => {
@@ -73,28 +89,38 @@ function Cars() {
       <div className="flex flex-wrap gap-10 justify-center mt-2 mb-6 ">
         {cars.slice(0, visibility).map((car, index) => {
           return (
-            <button
-              key={index}
+            <motion.div
               className={`flex flex-col justify-center items-center py-3 px-10 w-[30vw] bg-white hover:scale-105 transition-all item ${
                 isFilteredCarsOpen ? 'blur-background' : ''
               }`}
-              onClick={() => handleCarItem(car._id)}
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{
+                opacity: isScrolling ? 0 : 1,
+                scale: isScrolling ? 0.5 : 1,
+              }}
+              transition={{
+                duration: 0.4,
+                delay: 0.5,
+                ease: [0, 0.71, 0.2, 1.01],
+              }}
             >
-              <div className="">
-                <Image src={car.img} alt={car.img} width={300} height={100} />
-              </div>
-              <div className="flex items-center gap-20">
-                <div className="flex items-center gap-2">
-                  <h3 className="font-bold">{car.name}</h3>
-                  <h4>{car.model}</h4>
+              <button key={index} onClick={() => handleCarItem(car._id)}>
+                <div className="hover:scale-105 transition-all">
+                  <Image src={car.img} alt={car.img} width={300} height={100} />
                 </div>
-                <div className="">
-                  <p className="font-bold">
-                    <span className="text-primary">€</span> {car.price}
-                  </p>
+                <div className="flex items-center gap-20">
+                  <div className="flex items-center gap-2">
+                    <h3 className="font-bold">{car.name}</h3>
+                    <h4>{car.model}</h4>
+                  </div>
+                  <div className="">
+                    <p className="font-bold">
+                      <span className="text-primary">€</span> {car.price}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </button>
+              </button>
+            </motion.div>
           );
         })}
         <button
