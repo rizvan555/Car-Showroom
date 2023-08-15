@@ -33,6 +33,9 @@ app.use((req, res, next) => {
 const storage: multer.StorageEngine = multer.memoryStorage();
 const upload = multer({
   storage,
+  limits: {
+    fileSize: 50 * 1024 * 1024,
+  },
 });
 
 const carsSchema = new Schema({

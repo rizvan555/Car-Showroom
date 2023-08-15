@@ -25,10 +25,6 @@ function CarLoading() {
   const [kilometerValue, setKilometerValue] = useState<number | null>(null);
   const [psValue, setPsValue] = useState<number | null>(null);
   const [imageValue, setImageValue] = useState<string>('');
-  const [imageValue1, setImageValue1] = useState<string>('');
-  const [imageValue2, setImageValue2] = useState<string>('');
-  const [imageValue3, setImageValue3] = useState<string>('');
-  const [imageValue4, setImageValue4] = useState<string>('');
 
   const myOwner = ['1', '2', '3', '4', '5'];
 
@@ -57,27 +53,16 @@ function CarLoading() {
     }
   };
 
-  const handleImageChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    index: number
-  ) => {
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       const file = e.target.files[0];
       const reader = new FileReader();
       reader.onloadend = () => {
         setImageValue(reader.result as string);
-        setImageValue1(reader.result as string);
-        setImageValue2(reader.result as string);
-        setImageValue3(reader.result as string);
-        setImageValue4(reader.result as string);
       };
       reader.readAsDataURL(file);
     } else {
       setImageValue('');
-      setImageValue1('');
-      setImageValue2('');
-      setImageValue3('');
-      setImageValue4('');
     }
   };
 
@@ -92,10 +77,6 @@ function CarLoading() {
 
     const employmentData = {
       img: imageValue,
-      img1: imageValue1,
-      img2: imageValue2,
-      img3: imageValue3,
-      img4: imageValue4,
       name: selectedCarName,
       model: selectedCar.models[0],
       year: yearsValue,
@@ -124,10 +105,6 @@ function CarLoading() {
       setKilometerValue(null);
       setPsValue(null);
       setImageValue('');
-      setImageValue1('');
-      setImageValue2('');
-      setImageValue3('');
-      setImageValue4('');
     } catch (error) {
       console.log(error);
     }
@@ -143,7 +120,7 @@ function CarLoading() {
           <div>
             <select
               className="border w-[12vw] px-2 py-1"
-              value={nameValue}
+              value={selectedCarName}
               onChange={handleCarNameCheck}
             >
               <option>Marke</option>
@@ -270,43 +247,7 @@ function CarLoading() {
             name="image"
             className="border"
             accept="image/*"
-            onChange={(e) => handleImageChange(e, 0)}
-          />
-        </div>
-        <div>
-          <input
-            type="file"
-            name="image"
-            className="border"
-            accept="image/*"
-            onChange={(e) => handleImageChange(e, 1)}
-          />
-        </div>
-        <div>
-          <input
-            type="file"
-            name="image"
-            className="border"
-            accept="image/*"
-            onChange={(e) => handleImageChange(e, 2)}
-          />
-        </div>
-        <div>
-          <input
-            type="file"
-            name="image"
-            className="border"
-            accept="image/*"
-            onChange={(e) => handleImageChange(e, 3)}
-          />
-        </div>
-        <div>
-          <input
-            type="file"
-            name="image"
-            className="border"
-            accept="image/*"
-            onChange={(e) => handleImageChange(e, 4)}
+            onChange={handleImageChange}
           />
         </div>
       </div>
