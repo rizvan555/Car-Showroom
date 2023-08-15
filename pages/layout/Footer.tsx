@@ -13,13 +13,13 @@ function Footer() {
       <div className="absolute flex bg-[#00de1b] text-white top-[-4vh] gap-16 px-10 py-4 rounded">
         <div className="flex items-center gap-1">
           <BsTelephoneFill size={20} />
-          <p>+01 123567894</p>
+          <p>+49 123567894</p>
         </div>
         <div className="flex items-center gap-1">
           <MdEmail size={20} />
-          <p>demo@gmail</p>
+          <p>Luxury-cars@gmail.com</p>
         </div>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-2">
           <Link href="https://www.facebook.com/">
             <ImFacebook2 size={20} />
           </Link>
