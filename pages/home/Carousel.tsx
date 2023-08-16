@@ -20,7 +20,7 @@ export default class SimpleSlider extends Component<PropsCarousel> {
     const settings = {
       dots: false,
       infinite: true,
-      speed: 800,
+      speed: 600,
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
