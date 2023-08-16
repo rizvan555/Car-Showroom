@@ -57,7 +57,7 @@ function FilteredCars({
           {filteredCars.map((car, index) => (
             <div
               key={index}
-              className={`absolute flex justify-center items-center gap-8 w-[95vw] h-[120vh] bg-white border border-gray-300 mx-6 item ${
+              className={`absolute flex justify-center items-center mb-[40px] gap-8 w-[95vw] h-[105vh] bg-white border border-gray-300 mx-6 item ${
                 isFilteredCarsOpen ? 'visible' : 'invisible'
               }`}
             >
@@ -119,7 +119,7 @@ function FilteredCars({
                   </button>
                 </div>
               </div>
-              <div className="flex flex-col px-10 py-10 gap-2 border-r border-l w-[32vw]">
+              <div className="flex flex-col px-10 py-6 gap-2 border-r border-l w-[32vw] h-[70vh]">
                 <div className="flex gap-3 font-extrabold ">
                   <p className="text-2xl"> {car.name}</p>
                   <p className="text-2xl"> {car.model}</p>
@@ -130,7 +130,7 @@ function FilteredCars({
                   <span className="text-primary ml-2">€</span>
                 </p>
                 <hr />
-                <p className="flex items-center gap-3 text-l mt-6">
+                <p className="flex items-center gap-3 text-l mt-10">
                   <MdAppRegistration size={22} />
                   <span className="font-bold">Erstzulassung:</span> {car.year}
                 </p>

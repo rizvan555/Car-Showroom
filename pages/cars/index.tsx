@@ -61,20 +61,6 @@ function Cars() {
     };
     getCars();
   }, []);
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolling(true);
-      setTimeout(() => {
-        setIsScrolling(false);
-      }, 200);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   const handleMoreCars = () => {
     setVisibility((prevVisibleCars) => prevVisibleCars + 6);
@@ -140,7 +126,9 @@ function Cars() {
         })}
         <button
           onClick={handleMoreCars}
-          className="border px-6 py-2 bg-primary text-white myButton"
+          className={`border px-6 py-2 bg-primary text-white myButton ${
+            isFilteredCarsOpen ? 'blur-background' : ''
+          }`}
         >
           SEE MORE
         </button>

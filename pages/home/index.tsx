@@ -4,6 +4,7 @@ import audibg1 from '../../resourse/images/audibg1.png';
 import Carousel from '../home/Carousel';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { motion } from 'framer-motion';
 
 interface HomePageProps {
   light: boolean;
@@ -21,6 +22,23 @@ interface PropsCarousel {
   light: boolean;
   setLight: Dispatch<SetStateAction<boolean>>;
 }
+const variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const images = {
+  hidden: {
+    opacity: 0,
+    x: 30,
+  },
+  show: { opacity: 1, x: 0, transition: { duration: 1 } },
+};
 
 function HomePage({ light, setLight }: HomePageProps) {
   const settings: PropsCarousel = {
@@ -37,7 +55,7 @@ function HomePage({ light, setLight }: HomePageProps) {
   };
 
   return (
-    <div>
+    <motion.div variants={variants} initial="hidden" animate="show">
       {light ? (
         <div
           className="h-[100vh]"
@@ -71,7 +89,7 @@ function HomePage({ light, setLight }: HomePageProps) {
           </main>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }
 
