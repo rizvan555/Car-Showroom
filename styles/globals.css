@@ -60,6 +60,38 @@ div {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+.aboutBg {
+  position: relative;
+  background-image: url('../resourse/images/bmw1.jpeg');
+  background-size: cover;
+}
+
+.aboutBg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.aboutNotBg {
+  position: relative;
+
+}
+
+.aboutNotBg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: none;
+  z-index: 2;
+}
+
 /* Border Fade */
 .hvr-border-fade:hover {
   display: inline-block;
@@ -112,5 +144,3 @@ div {
   left: 0;
   right: 0;
 }
-
-
