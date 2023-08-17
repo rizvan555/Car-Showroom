@@ -98,7 +98,7 @@ function Cars() {
               initial="hidden"
               animate="show"
               key={index}
-              className={`flex flex-col justify-center items-center py-3 px-10 w-[30vw] bg-white hover:scale-105 transition-all item ${
+              className={`flex flex-col justify-center items-center py-2 px-10 w-[30vw] bg-white hover:scale-105 transition-all item ${
                 isFilteredCarsOpen ? 'blur-background' : ''
               }`}
             >
@@ -106,10 +106,10 @@ function Cars() {
                 variants={images}
                 onClick={() => handleCarItem(car._id)}
               >
-                <div className="hover:scale-105 transition-all">
+                <div className="hover:scale-105 transition-all h-[30vh]">
                   <Image src={car.img} alt={car.img} width={300} height={100} />
                 </div>
-                <div className="flex items-center gap-20">
+                <div className="flex items-center justify-between text-[18px] h-[10vh]">
                   <div className="flex items-center gap-2">
                     <h3 className="font-bold">{car.name}</h3>
                     <h4>{car.model}</h4>

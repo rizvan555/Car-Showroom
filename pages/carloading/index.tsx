@@ -254,7 +254,7 @@ function CarLoading() {
 
       <div>
         <button
-          className="border w-[10vw] rounded tracking-wider"
+          className="border w-[10vw] rounded tracking-wider myButton"
           type="submit"
         >
           SEND
