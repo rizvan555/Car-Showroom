@@ -47,7 +47,6 @@ function Cars() {
   const [filteredCars, setFilteredCars] = useState<Cars[]>([]);
   const [isFilteredCarsOpen, setIsFilteredCarsOpen] = useState<boolean>(false);
   const [close, setClose] = useState<boolean>(true);
-  const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
     const getCars = async () => {

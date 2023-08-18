@@ -78,7 +78,6 @@ div {
 }
 .aboutNotBg {
   position: relative;
-
 }
 
 .aboutNotBg::before {
@@ -90,6 +89,48 @@ div {
   height: 100%;
   background-color: none;
   z-index: 2;
+}
+.newsBg {
+  position: relative;
+  background-image: url('../resourse//images/lambo.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.newsBg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.awardBg {
+  position: relative;
+  background-image: url('../resourse//images/Mercedes.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.awardBg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: none;
+  z-index: 1;
+}
+
+span {
+  font-weight: bold;
+  color: #00de1b;
+  font-size: 20px;
+  letter-spacing: 1px;
 }
 
 /* Border Fade */
