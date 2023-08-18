@@ -57,7 +57,7 @@ function FilteredCars({
           {filteredCars.map((car, index) => (
             <div
               key={index}
-              className={`absolute flex justify-center items-center mb-[40px] gap-8 w-[95vw] h-[105vh] bg-white border border-gray-300 mx-6 item ${
+              className={`absolute flex justify-center items-center mb-[40px] gap-8 w-[95vw] h-[110vh] bg-white border border-gray-300 mx-6 item ${
                 isFilteredCarsOpen ? 'visible' : 'invisible'
               }`}
             >

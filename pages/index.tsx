@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useUser } from '@clerk/nextjs';
 import { motion, useScroll, useSpring } from 'framer-motion';
+import Awards from './awards';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,6 +23,7 @@ export default function Home() {
       router.replace('/sign-in');
     }
   }, [user, router]);
+
   return (
     <div>
       <HomePage light={light} setLight={setLight} />
@@ -29,6 +31,7 @@ export default function Home() {
       <About />
       <Cars />
       <News />
+      <Awards />
       <Contact />
     </div>
   );

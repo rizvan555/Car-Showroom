@@ -26,19 +26,15 @@ function News() {
       variants={variants}
       initial="hidden"
       animate="show"
-      className="flex flex-col justify-center mx-auto px-20 py-32 text-white"
-      style={{
-        backgroundImage: `url(${Mercedes.src})`,
-        backgroundSize: 'cover',
-      }}
+      className="flex flex-col justify-center mx-auto px-20 py-32 text-white newsBg"
     >
       <motion.div variants={images}>
         <div className="flex items-center gap-8  mb-20">
-          <h1 className="text-6xl font-bold tracking-wider">NEWS</h1>
-          <hr className="hr-line-news" />
+          <h1 className="text-6xl font-bold tracking-wider z-10">NEWS</h1>
+          <hr className="hr-line-news z-10" />
         </div>
-        <div className="mb-16">
-          <p className="text-xl">
+        <div className="mb-16 aboutNotBg z-10">
+          <p className="text-xl z-10">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat
             similique quia quae et omnis cumque eveniet obcaecati ratione. Fugit
             voluptate ipsa dolore dolor cupiditate tenetur dignissimos eligendi
@@ -49,8 +45,8 @@ function News() {
             omnis cumque eveniet obcaecati ratione.
           </p>
         </div>
-        <div>
-          <button className="border py-3 px-10 bg-white text-black myButton">
+        <div className="z-10 aboutNotBg">
+          <button className="border py-3 px-10 bg-white text-black myButton z-10">
             READ MORE
           </button>
         </div>
