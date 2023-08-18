@@ -64,9 +64,9 @@ function HomePage({ light, setLight }: HomePageProps) {
             backgroundSize: 'cover',
           }}
         >
-          <main>
+          {/* <main>
             <Carousel {...settings} />
-          </main>
+          </main> */}
         </div>
       ) : (
         <div
