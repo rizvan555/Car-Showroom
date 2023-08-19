@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const variants = {
@@ -20,6 +20,11 @@ const images = {
 };
 
 function About() {
+  const [visibilityAbout, setVisibilityAbout] = useState<boolean>(false);
+  const aboutInfo = [
+    ' Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeatsimilique quia quae et omnis cumque eveniet obcaecati ratione.',
+  ];
+
   return (
     <motion.div
       variants={variants}
@@ -41,9 +46,16 @@ function About() {
             saepe quod nesciunt expedita, omnis quasi tempore fuga quaerat
             suscipit. Sed quisquam dolor harum dolorem?
           </p>
+          <p className="text-xl">{visibilityAbout ? 'Lorem ipsum...' : ''}</p>
         </div>
         <div className="z-10 aboutNotBg">
-          <button className="border py-3 px-10 bg-white text-black myButton ">
+          <button
+            className="border py-3 px-10 bg-white text-black cursor-pointer myButton "
+            onClick={() => {
+              console.log('Button clicked');
+              setVisibilityAbout(!visibilityAbout);
+            }}
+          >
             READ MORE
           </button>
         </div>
