@@ -46,20 +46,21 @@ function About() {
             saepe quod nesciunt expedita, omnis quasi tempore fuga quaerat
             suscipit. Sed quisquam dolor harum dolorem?
           </p>
-          <p className="text-xl">{visibilityAbout ? 'Lorem ipsum...' : ''}</p>
+          <p className="text-xl">{visibilityAbout ? aboutInfo : ''}</p>
         </motion.div>
-        <div className="z-10 aboutNotBg">
+        <motion.div
+          className="z-10 cursor-pointer aboutNotBg"
+          onClick={() => {
+            setVisibilityAbout(!visibilityAbout);
+          }}
+        >
           <motion.button
             variants={images}
             className="border py-3 px-10 bg-white text-black cursor-pointer myButton "
-            onClick={() => {
-              console.log('Button clicked');
-              setVisibilityAbout(!visibilityAbout);
-            }}
           >
             READ MORE
           </motion.button>
-        </div>
+        </motion.div>
       </div>
     </motion.div>
   );

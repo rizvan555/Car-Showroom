@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Mercedes from '../../resourse/images/Mercedes.webp';
 import { motion } from 'framer-motion';
 
@@ -21,6 +21,11 @@ const images = {
 };
 
 function News() {
+  const [moreNews, setMoreNews] = useState<boolean>(false);
+
+  const moreNewsContent =
+    'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat similique quia quae et omnis cumque eveniet obcaecati ratione. ';
+
   return (
     <motion.div
       variants={variants}
@@ -44,12 +49,24 @@ function News() {
             amet consectetur adipisicing elit. Placeat similique quia quae et
             omnis cumque eveniet obcaecati ratione.
           </p>
+          <p className="text-xl z-10">{moreNews ? moreNewsContent : ''}</p>
         </div>
-        <div className="z-10 aboutNotBg">
-          <button className="border py-3 px-10 bg-white text-black myButton z-10">
+        <motion.div
+          variants={variants}
+          initial="hidden"
+          animate="show"
+          className="z-10 cursor-pointer aboutNotBg"
+          onClick={() => setMoreNews(!moreNews)}
+        >
+          <motion.button
+            variants={variants}
+            initial="hidden"
+            animate="show"
+            className="border py-3 px-10 bg-white text-black myButton z-10"
+          >
             READ MORE
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       </motion.div>
     </motion.div>
   );
