@@ -11,6 +11,7 @@ function Navbar() {
     { title: 'CARS', path: '/cars', status: false },
     { title: 'NEWS', path: '/news', status: false },
     { title: 'CONTACT', path: '/contact', status: false },
+    { title: 'ADD-NEW-CAR', path: '/carloading', status: false },
   ]);
 
   const handleNavClick = (index: any) => {

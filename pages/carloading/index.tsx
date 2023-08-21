@@ -4,11 +4,29 @@ import years from '../data/years.json';
 import displacement from '../data/displacement.json';
 import fuel from '../data/fuel.json';
 import transmission from '../data/transmission.json';
+import { motion } from 'framer-motion';
 
 interface Carsettings {
   name: string;
   models: string[];
 }
+const variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const images = {
+  hidden: {
+    opacity: 0,
+    y: 30,
+  },
+  show: { opacity: 1, y: 0, transition: { duration: 1 } },
+};
 
 function CarLoading() {
   const [carsettings, setCarsettings] = useState<Carsettings[]>([]);
@@ -111,11 +129,14 @@ function CarLoading() {
   };
 
   return (
-    <form
+    <motion.form
+      variants={variants}
+      initial="hidden"
+      animate="show"
       onSubmit={handleSubmit}
       className="flex flex-col items-center gap-10 px-20 py-32"
     >
-      <div className="flex justify-center">
+      <motion.div variants={images} className="flex justify-center">
         <div className="grid grid-cols-5 gap-14">
           <div>
             <select
@@ -238,9 +259,9 @@ function CarLoading() {
             onChange={(e) => setPsValue(Number(e.target.value))}
           />
         </div>
-      </div>
+      </motion.div>
 
-      <div className="grid grid-cols-3 gap-10">
+      <motion.div variants={images} className="grid grid-cols-3 gap-10">
         <div>
           <input
             type="file"
@@ -250,17 +271,17 @@ function CarLoading() {
             onChange={handleImageChange}
           />
         </div>
-      </div>
+      </motion.div>
 
-      <div>
+      <motion.div variants={images}>
         <button
-          className="border w-[10vw] rounded tracking-wider myButton"
+          className="border w-[10vw] py-2  tracking-wider myButton"
           type="submit"
         >
           SEND
         </button>
-      </div>
-    </form>
+      </motion.div>
+    </motion.form>
   );
 }
 
