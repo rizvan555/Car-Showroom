@@ -34,10 +34,13 @@ function About() {
     >
       <div>
         <motion.div variants={images} className="flex items-center gap-8 mb-20">
-          <h1 className="text-6xl font-bold z-10">ABOUT US</h1>
-          <hr className="hr-line z-10" />
+          <h1 className="md:text-6xl text-4xl font-bold z-10">ABOUT US</h1>
+          <hr className="md:hr-line z-10" />
         </motion.div>
-        <motion.div variants={images} className="mb-16 z-10 aboutNotBg">
+        <motion.div
+          variants={images}
+          className="mb-16 z-10 aboutNotBg md:w-[90vw] w-[65vw]"
+        >
           <p className="text-xl ">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat
             similique quia quae et omnis cumque eveniet obcaecati ratione. Fugit

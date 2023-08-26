@@ -72,9 +72,9 @@ function FindCar() {
       <div className="flex justify-start ml-20 font-bold text-2xl text-primary">
         <h3 className="">FIND YOUR CAR</h3>
       </div>
-      <div className="flex gap-3 items-center justify-center">
+      <div className="md:flex grid grid-cols-1 mx-auto gap-3 items-center justify-center">
         <select
-          className="border w-[25vw] px-2 py-2"
+          className="border md:w-[25vw] px-2 py-2"
           value={selectedName}
           onChange={(e) => setSelectedName(e.target.value)}
         >
@@ -86,7 +86,7 @@ function FindCar() {
           ))}
         </select>
         <select
-          className="border w-[25vw] px-2 py-2"
+          className="border md:w-[25vw] px-2 py-2"
           value={selectedModel}
           onChange={(e) => setSelectedModel(e.target.value)}
         >
@@ -98,7 +98,7 @@ function FindCar() {
           ))}
         </select>
         <select
-          className="border w-[25vw] px-2 py-2"
+          className="border md:w-[25vw] w-[60vw] px-2 py-2"
           value={selectedYear}
           onChange={(e) => setSelectedYear(parseInt(e.target.value))}
         >
@@ -110,7 +110,7 @@ function FindCar() {
           ))}
         </select>
       </div>
-      <div className="flex justify-end mr-20">
+      <div className="md:flex md:justify-end mx-auto md:mr-20">
         <button className="border px-4 py-1 myButton" onClick={handleCarSearch}>
           Search
         </button>
