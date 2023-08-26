@@ -121,8 +121,8 @@ function FilteredCars({
               </div>
               <div className="flex flex-col px-10 py-6 gap-2 border-r border-l w-[32vw] h-[70vh]">
                 <div className="flex gap-3 font-extrabold ">
-                  <p className="text-2xl"> {car.name}</p>
-                  <p className="text-2xl"> {car.model}</p>
+                  <p className="text-3xl"> {car.name}</p>
+                  <p className="text-3xl"> {car.model}</p>
                 </div>
                 <p className="text-base">{car.transmission}</p>
                 <p className="text-3xl mb-6">
@@ -132,27 +132,30 @@ function FilteredCars({
                 <hr />
                 <p className="flex items-center gap-3 text-l mt-10">
                   <MdAppRegistration size={22} />
-                  <span className="font-bold">Erstzulassung:</span> {car.year}
+                  <span className="font-bold menu">Erstzulassung:</span>{' '}
+                  {car.year}
                 </p>
                 <p className="flex items-center gap-4 text-l">
                   <BsFillFuelPumpDieselFill size={20} />
-                  <span className="font-bold">Kraftstoff:</span> {car.fuel}
+                  <span className="font-bold menu">Kraftstoff:</span> {car.fuel}
                 </p>
                 <p className="flex items-center gap-3 text-l">
                   <TbRoad size={20} />
-                  <span className="font-bold">Kilometerstand:</span> {car.km} km
+                  <span className="font-bold menu">Kilometerstand:</span>{' '}
+                  {car.km} km
                 </p>
                 <p className="flex items-center gap-3 text-l">
                   <PiEngineDuotone size={22} />
-                  <span className="font-bold">Hubraum:</span> {car.displacement}
+                  <span className="font-bold menu">Hubraum:</span>{' '}
+                  {car.displacement}
                 </p>
                 <p className="flex items-center gap-3 text-l">
                   <BsSpeedometer2 size={20} />
-                  <span className="font-bold">Leistung:</span> {car.ps} hp
+                  <span className="font-bold menu">Leistung:</span> {car.ps} hp
                 </p>
                 <p className="flex items-center gap-3 text-l">
                   <BsFillPersonFill size={20} />
-                  <span className="font-bold">Farhrzeughalter:</span>{' '}
+                  <span className="font-bold menu">Farhrzeughalter:</span>{' '}
                   {car.owner}
                 </p>
               </div>
