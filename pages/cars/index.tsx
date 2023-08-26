@@ -86,10 +86,12 @@ function Cars() {
           isFilteredCarsOpen ? 'blur-background' : ''
         }`}
       >
-        <h1 className="text-6xl font-bold px-5">OUR CARS</h1>
-        <hr className="hr-line" />
+        <h1 className="md:text-6xl text-4xl mx-auto md:m-0 font-bold px-5">
+          OUR CARS
+        </h1>
+        <hr className="md:hr-line" />
       </div>
-      <div className="flex flex-wrap gap-10 justify-center mt-2 mb-6 ">
+      <div className="md:flex flex-wrap grid grid-cols-1 gap-10 justify-center mt-2 mb-6 ">
         {cars.slice(0, visibility).map((car, index) => {
           return (
             <motion.div
@@ -97,7 +99,7 @@ function Cars() {
               initial="hidden"
               animate="show"
               key={index}
-              className={`flex flex-col justify-center items-center py-2 px-10 w-[30vw] bg-white hover:scale-105 transition-all item ${
+              className={`md:flex flex-col justify-center items-center py-2 px-10 md:w-[30vw] w-[85vw] md:m-0 mx-auto bg-white hover:scale-105 transition-all item ${
                 isFilteredCarsOpen ? 'blur-background' : ''
               }`}
             >
@@ -125,7 +127,7 @@ function Cars() {
         })}
         <button
           onClick={handleMoreCars}
-          className={`border px-6 py-2 bg-primary text-white myButton ${
+          className={`border px-6 py-2 bg-primary text-white myButton md:w-[15vw] w-[40vw] mx-auto md:m-0 ${
             isFilteredCarsOpen ? 'blur-background' : ''
           }`}
         >
