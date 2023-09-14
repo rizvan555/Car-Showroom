@@ -9,11 +9,11 @@ import Link from 'next/link';
 function Footer() {
   const [value, setValue] = useState('');
   return (
-    <div className="flex justify-center bg-black text-white py-12 gap-8 relative border-t">
-      <div className="absolute flex bg-[#00de1b] text-white top-[-4vh] gap-16 px-10 py-4 rounded">
+    <div className="flex justify-center bg-black text-white py-12 gap-8 relative border-t z-50">
+      <div className="absolute flex bg-[#00de1b] text-white top-[-4vh] gap-16 px-10 py-4 rounded ">
         <div className="flex items-center gap-1">
           <BsTelephoneFill size={20} />
-          <p>+49 123567894</p>
+          <p>+994 123567894</p>
         </div>
         <div className="flex items-center gap-1">
           <MdEmail size={20} />
