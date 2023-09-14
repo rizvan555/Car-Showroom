@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Mercedes from '../../resourse/images/Mercedes.webp';
 import { motion } from 'framer-motion';
 
 const variants = {
@@ -24,7 +23,7 @@ function News() {
   const [moreNews, setMoreNews] = useState<boolean>(false);
 
   const moreNewsContent =
-    'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat similique quia quae et omnis cumque eveniet obcaecati ratione. ';
+    'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat similique quia quae et omnis cumque eveniet obcaecati ratione. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat similique quia quae et omnis cumque eveniet obcaecati ratione.';
 
   return (
     <motion.div
@@ -62,7 +61,7 @@ function News() {
             variants={variants}
             initial="hidden"
             animate="show"
-            className="border py-3 px-10 bg-white text-black myButton z-10"
+            className="border py-3 px-10 bg-white text-black myButton z-1"
           >
             READ MORE
           </motion.button>
