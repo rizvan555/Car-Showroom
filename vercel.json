@@ -1,1 +1,7 @@
-{ "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }] }
+{
+  "build": {
+    "env": {
+      "NEXT_VERSION": "12.0.0"
+    }
+  }
+}
