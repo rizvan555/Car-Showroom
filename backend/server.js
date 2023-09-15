@@ -30,7 +30,7 @@ app.use((req, res, next) => {
   next();
 });
 
-const storage: multer.StorageEngine = multer.memoryStorage();
+const storage = multer.memoryStorage();
 const upload = multer({
   storage,
   limits: {

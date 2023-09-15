@@ -18,11 +18,11 @@ export default function Home() {
   const router = useRouter();
   const { user } = useUser();
 
-  useEffect(() => {
-    if (!user) {
-      router.replace('/sign-in');
-    }
-  }, [user, router]);
+  // useEffect(() => {
+  //   if (!user) {
+  //     router.replace('/sign-in');
+  //   }
+  // }, [user, router]);
 
   return (
     <div>

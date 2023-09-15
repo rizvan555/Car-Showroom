@@ -1,14 +1,25 @@
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
-import { ClerkProvider } from '@clerk/nextjs';
+import { ClerkProvider, SignIn, SignUp } from '@clerk/nextjs';
 import Layout from '../layouts/layout';
 
-export default function App({ Component, pageProps }: AppProps) {
-  return (
-    <ClerkProvider {...pageProps}>
-      <Layout>
+function MyApp({ Component, pageProps }: AppProps) {
+  // SignIn ve SignUp sayfalarında Layout kullanmayın
+  if (Component === SignIn || Component === SignUp) {
+    return (
+      <ClerkProvider {...pageProps}>
         <Component {...pageProps} />
-      </Layout>
-    </ClerkProvider>
-  );
+      </ClerkProvider>
+    );
+  } else {
+    return (
+      <ClerkProvider {...pageProps}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ClerkProvider>
+    );
+  }
 }
+
+export default MyApp;

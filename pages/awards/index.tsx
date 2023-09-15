@@ -1,10 +1,10 @@
-import axios from 'axios';
 import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 import { AiFillCar } from 'react-icons/ai';
 import { GiTrophyCup } from 'react-icons/gi';
 import { FaTruck } from 'react-icons/fa';
 import { HiOutlineEmojiHappy } from 'react-icons/hi';
+import axios from 'axios';
 
 const Awards: NextPage = () => {
   const [cars, setCars] = useState([]);

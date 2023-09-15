@@ -1,5 +1,5 @@
-import Footer from '@/pages/layout/Footer';
-import Header from '@/pages/layout/Header';
+import Footer from '@/pages/components/layout/Footer';
+import Header from '@/pages/components/layout/Header';
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 

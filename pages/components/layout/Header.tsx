@@ -1,6 +1,6 @@
 import React from 'react';
-import Navbar from '../home/Navbar';
-import SearchButton from '../home/SearchButton';
+import Navbar from '../recource/Navbar';
+import SearchButton from '../recource/SearchButton';
 import Link from 'next/link';
 import { UserButton } from '@clerk/nextjs';
 import { motion, AnimatePresence } from 'framer-motion';

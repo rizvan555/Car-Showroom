@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
-import audiBg from '../../resourse/images/audiBg.webp';
-import audibg1 from '../../resourse/images/audibg1.png';
-import Carousel from '../home/Carousel';
+import audiBg from '../../resource/images/audiBg.webp';
+import audibg1 from '../../resource/images/audibg1.png';
+import Carousel from '../components/recource/Carousel';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { motion } from 'framer-motion';

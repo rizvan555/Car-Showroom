@@ -1,5 +1,5 @@
 import React from 'react';
-import carshow from '../../resourse/images/carshow.webp';
+import carshow from '../../resource/images/carshow.webp';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
