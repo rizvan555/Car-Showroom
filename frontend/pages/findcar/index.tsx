@@ -9,6 +9,8 @@ import {
 import { MdAppRegistration } from 'react-icons/md';
 import { PiEngineDuotone } from 'react-icons/pi';
 import { TbRoad } from 'react-icons/tb';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 
 interface Cars {
   _id: string;
@@ -67,38 +69,59 @@ function FindCar() {
     window.location.reload();
   };
 
+  const options = cars.map((option) => {
+    const firstLetter =
+      option.name[0].toUpperCase() || option.model[0].toLowerCase();
+    return {
+      firstLetter: /[0-9]/.test(firstLetter) ? '0-9' : firstLetter,
+      ...option,
+    };
+  });
+
   return (
     <div className="flex flex-col my-20 gap-10 item py-10 w-[90%] mx-auto">
       <div className="flex justify-start ml-20 font-bold text-2xl text-primary">
         <h3 className="">FIND YOUR CAR</h3>
       </div>
       <div className="md:flex grid grid-cols-1 mx-auto gap-3 items-center justify-center">
+        <Autocomplete
+          id="grouped-demo"
+          options={options.sort(
+            (a, b) => -b.firstLetter.localeCompare(a.firstLetter)
+          )}
+          groupBy={(option) => option.firstLetter}
+          getOptionLabel={(option) => option.name}
+          sx={{ width: 300 }}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              label="All Marke"
+              value={selectedModel}
+              onChange={(e) => setSelectedModel(e.target.value)}
+            />
+          )}
+        />
+
+        <Autocomplete
+          id="grouped-demo"
+          options={options.sort(
+            (a, b) => -b.firstLetter.localeCompare(a.firstLetter)
+          )}
+          groupBy={(option) => option.firstLetter}
+          getOptionLabel={(option) => option.model}
+          sx={{ width: 300 }}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              label="Models"
+              value={selectedModel}
+              onChange={(e) => setSelectedModel(e.target.value)}
+            />
+          )}
+        />
+
         <select
-          className="border md:w-[25vw] px-2 py-2"
-          value={selectedName}
-          onChange={(e) => setSelectedName(e.target.value)}
-        >
-          <option value="">Make All</option>
-          {cars.map((car, index) => (
-            <option value={car.name} key={index}>
-              {car.name}
-            </option>
-          ))}
-        </select>
-        <select
-          className="border md:w-[25vw] px-2 py-2"
-          value={selectedModel}
-          onChange={(e) => setSelectedModel(e.target.value)}
-        >
-          <option value="">Model</option>
-          {cars.map((car, index) => (
-            <option value={car.model} key={index}>
-              {car.model}
-            </option>
-          ))}
-        </select>
-        <select
-          className="border md:w-[25vw] w-[60vw] px-2 py-2"
+          className="border md:w-[25vw] w-[60vw] px-2 py-4"
           value={selectedYear}
           onChange={(e) => setSelectedYear(parseInt(e.target.value))}
         >
@@ -111,8 +134,11 @@ function FindCar() {
         </select>
       </div>
       <div className="md:flex md:justify-end mx-auto md:mr-20">
-        <button className="border px-4 py-1 myButton" onClick={handleCarSearch}>
-          Search
+        <button
+          className="border px-16 py-2 myButton text-l"
+          onClick={handleCarSearch}
+        >
+          SEARCH
         </button>
       </div>
 
