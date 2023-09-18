@@ -143,7 +143,7 @@ function CarLoading() {
       initial="hidden"
       animate="show"
       onSubmit={handleSubmit}
-      className="flex flex-col items-center gap-10 px-20 py-32"
+      className="flex flex-col items-center gap-10 px-20 py-32 w-[100vw]"
     >
       <motion.div variants={images} className="flex justify-center">
         <div className="grid grid-cols-3 gap-14">
@@ -153,7 +153,7 @@ function CarLoading() {
               value={selectedCarName}
               onChange={handleCarNameCheck}
             >
-              <option >Marke</option>
+              <option>Marke</option>
               {carSettings
                 .filter(
                   (car, index, self) =>
@@ -165,8 +165,6 @@ function CarLoading() {
                   </option>
                 ))}
             </select>
-          <div className="invalid-feedback">Error</div>
-
           </div>
           <div>
             <select
@@ -182,7 +180,6 @@ function CarLoading() {
               ))}
             </select>
           </div>
-
           <div>
             <select
               className="border w-[20vw] px-2 py-3 rounded-lg"
@@ -254,36 +251,38 @@ function CarLoading() {
             </select>
           </div>
 
-          <input
-            type="number"
-            placeholder="Price"
-            value={priceValue || ''}
-            className="border w-[20vw] px-2 py-3 rounded-lg"
-            onChange={(e) => setPriceValue(Number(e.target.value))}
-          />
-          <input
-            type="number"
-            placeholder="Km"
-            value={kilometerValue || ''}
-            className="border w-[20vw] px-2 py-3 rounded-lg"
-            onChange={(e) => setKilometerValue(Number(e.target.value))}
-          />
-          <input
-            type="number"
-            placeholder="Ps"
-            value={psValue || ''}
-            className="border w-[20vw] px-2 py-3 rounded-lg"
-            onChange={(e) => setPsValue(Number(e.target.value))}
-          />
+          <div className="flex justify-between w-[50vw]">
+            <input
+              type="number"
+              placeholder="Price"
+              value={priceValue || ''}
+              className="border w-[13vw] px-2 py-3 rounded-lg"
+              onChange={(e) => setPriceValue(Number(e.target.value))}
+            />
+            <input
+              type="number"
+              placeholder="Km"
+              value={kilometerValue || ''}
+              className="border w-[13vw] px-2 py-3 rounded-lg"
+              onChange={(e) => setKilometerValue(Number(e.target.value))}
+            />
+            <input
+              type="number"
+              placeholder="Ps"
+              value={psValue || ''}
+              className="border w-[13vw] px-2 py-3 rounded-lg"
+              onChange={(e) => setPsValue(Number(e.target.value))}
+            />
+          </div>
         </div>
       </motion.div>
 
-      <motion.div variants={images} className="grid grid-cols-3 gap-10">
+      <motion.div variants={images} className="flex gap-10 ">
         <div>
           <input
             type="file"
             name="image"
-            className="border"
+            className="border w-[24vw] px-2 py-3 rounded-lg"
             accept="image/*"
             onChange={handleImageChange}
           />
@@ -292,7 +291,7 @@ function CarLoading() {
 
       <motion.div variants={images}>
         <button
-          className="border w-[10vw] py-2  tracking-wider myButton"
+          className="border w-[10vw] py-2  tracking-wider myButton rounded-lg"
           type="submit"
         >
           SEND

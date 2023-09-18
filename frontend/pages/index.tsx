@@ -10,6 +10,8 @@ import { useRouter } from 'next/router';
 import { useUser } from '@clerk/nextjs';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import Awards from './awards';
+import SignIn from './auth/signIn';
+import SignUp from './auth/signUp';
 
 const inter = Inter({ subsets: ['latin'] });
 

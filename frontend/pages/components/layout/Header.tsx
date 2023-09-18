@@ -4,8 +4,14 @@ import SearchButton from '../recource/SearchButton';
 import Link from 'next/link';
 import { UserButton } from '@clerk/nextjs';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useRouter } from 'next/router';
 
 function Header() {
+  const router = useRouter();
+
+  const logout = () => {
+    router.push('/auth/signIn');
+  };
   return (
     <AnimatePresence>
       <motion.div
@@ -22,8 +28,14 @@ function Header() {
           </Link>
           <div className="flex items-center gap-6">
             <Navbar />
-            <SearchButton />
             <UserButton />
+            <SearchButton />
+            <button
+              className=" bg-slate-200 border rounded-full w-10 h-10 text-[10px]"
+              onClick={logout}
+            >
+              Logout
+            </button>
           </div>
         </div>
       </motion.div>

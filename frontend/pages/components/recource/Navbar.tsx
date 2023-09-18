@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
+import { useRouter } from 'next/router';
 
 function Navbar() {
   const myPath = usePathname();
@@ -11,8 +12,9 @@ function Navbar() {
     { title: 'CARS', path: '/cars', status: false },
     { title: 'NEWS', path: '/news', status: false },
     { title: 'CONTACT', path: '/contact', status: false },
-    { title: 'ADD-NEW-CAR', path: '/carloading', status: false },
+    // { title: 'ADD-NEW-CAR', path: '/addCar', status: false },
   ]);
+
 
   const handleNavClick = (index: any) => {
     const updateNavbar = navbar.map((nav, i) => ({
@@ -21,6 +23,7 @@ function Navbar() {
     }));
     setNavbar(updateNavbar);
   };
+  
 
   return (
     <div className={'flex items-center gap-7 px-5 py-4 '}>
@@ -31,9 +34,9 @@ function Navbar() {
               href={nav.path}
               passHref
               key={index}
-              className={`text-white tracking-wider leading-5 ${
+              className={`text-white tracking-wider leading-5 text-[14px] ${
                 myPath === nav.path
-                  ? 'bg-[#00de1b] font-bold pt-3 pr-6 pl-6 pb-3'
+                  ? 'bg-[#00de1b] font-bold pt-3 pr-6 pl-6 pb-3 '
                   : ''
               }`}
             >
@@ -42,6 +45,7 @@ function Navbar() {
           </motion.div>
         </div>
       ))}
+     
     </div>
   );
 }
