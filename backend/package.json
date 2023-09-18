@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "my-backend",
+  "description": "car-showroom-application",
   "main": "server.js",
   "type": "module",
   "proxy": "http://localhost:3001",
@@ -19,7 +19,7 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "mongoose": "^7.4.1",
-    "next": "^12.1.0"
+    "next": "latest"
   },
   "keywords": [],
   "devDependencies": {
