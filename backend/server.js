@@ -1,13 +1,14 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import { Schema, model } from 'mongoose';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import multer from 'multer';
+import Cars from './models/cars.js';
+import CarEmployment from './models/carEmployment.js';
 
 mongoose.connect('mongodb://localhost:27017/cars');
-mongoose.createConnection('mongodb://localhost:27017/caremployment');
+mongoose.createConnection('mongodb://localhost:27017/carEmployment');
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -38,33 +39,6 @@ const upload = multer({
   },
 });
 
-const carsSchema = new Schema({
-  img: String,
-  img1: String,
-  img2: String,
-  img3: String,
-  img4: String,
-  name: String,
-  model: String,
-  fuel: String,
-  transmission: String,
-  owner: String,
-  displacement: String,
-  price: Number,
-  km: Number,
-  year: Number,
-  ps: Number,
-});
-
-export const Cars = model('Cars', carsSchema);
-
-const caremploymentSchema = new Schema({
-  name: String,
-  models: [String],
-});
-
-export const Caremployment = model('Caremployment', caremploymentSchema);
-
 app.get('/cars', async (req, res) => {
   try {
     const cars = await Cars.find();
@@ -85,18 +59,18 @@ app.post('/cars', async (req, res) => {
   }
 });
 
-app.get('/caremployment', async (req, res) => {
+app.get('/carEmployment', async (req, res) => {
   try {
-    const cars = await Caremployment.find();
+    const cars = await CarEmployment.find();
     res.send(cars);
   } catch (error) {
     console.log(error);
   }
 });
 
-app.post('/caremployment', async (req, res) => {
+app.post('/carEmployment', async (req, res) => {
   try {
-    const newCar = await Caremployment.create(req.body);
+    const newCar = await CarEmployment.create(req.body);
     console.log('New Car Employment:', newCar);
     res.status(200).json(newCar);
   } catch (error) {

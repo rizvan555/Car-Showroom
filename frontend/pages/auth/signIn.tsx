@@ -40,14 +40,9 @@ export default function SignIn() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
 
     const enteredEmail = data.get('email') as string;
     const enteredPassword = data.get('password') as string;
-
     if (
       enteredEmail === 'karimovrizvan84@gmail.com' &&
       enteredPassword === '123'
